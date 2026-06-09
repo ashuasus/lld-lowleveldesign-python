@@ -1,0 +1,34 @@
+name: Daily Commit
+
+on:
+  workflow_dispatch: # trigger manually from GitHub Actions tab
+
+jobs:
+  commit-one-file:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Touch one file and commit
+        run: |
+          FILE=$(grep -v '^\s*$' pending.txt | head -n 1)
+
+          if [ -z "$FILE" ]; then
+            echo "No pending files. Nothing to commit."
+            exit 0
+          fi
+
+          sed -i 's/[[:space:]]*$//' "$FILE"
+          sed -i -e '$a\' "$FILE"
+
+          grep -v "^${FILE}$" pending.txt > pending.tmp && mv pending.tmp pending.txt
+          echo "| $(date '+%Y-%m-%d') | \`$FILE\` |" >> COMMIT_LOG.md
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add "$FILE" pending.txt COMMIT_LOG.md
+          git commit -m "cleanup: trailing whitespace in $(basename $FILE)"
+          git push
