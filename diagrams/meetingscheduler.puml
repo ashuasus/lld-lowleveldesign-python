@@ -1,0 +1,137 @@
+@startuml MeetingScheduler
+skinparam classAttributeIconSize 0
+skinparam backgroundColor #FAFAFA
+title Meeting Scheduler - Class Diagram
+
+class MeetingScheduler {
+  - _all_meeting_rooms: List[MeetingRoom]
+  + schedule_meeting(organiser: User, participants: dict[User, ParticipantResponse], subject: str, time_interval: TimeInterval): Meeting
+  + cancel_meeting(meeting: Meeting): None
+  + add_meeting_room(meeting_room: MeetingRoom): None
+  + remove_meeting_room(meeting_room: MeetingRoom): None
+  - _check_for_available_rooms(capacity: int, interval: TimeInterval): MeetingRoom
+  - _book_slot(room: MeetingRoom, meeting: Meeting): None
+  - _release_slot(room: MeetingRoom, meeting: Meeting): None
+  - _notify_participants_with_invites(meeting: Meeting): None
+  - _notify_participants_about_meeting_cancellation(meeting: Meeting): None
+  - _simulate_user_responses_for_invites(meeting: Meeting): None
+  - _get_meeting_id(): str
+}
+
+class Meeting {
+  - _meeting_id: str
+  - _subject: str
+  - _time_interval: TimeInterval
+  - _organizer: User
+  - _meeting_room: MeetingRoom
+  - _attendees: dict[User, ParticipantResponse]
+  + get_meeting_id(): str
+  + get_subject(): str
+  + get_time_interval(): TimeInterval
+  + get_organizer(): User
+  + get_meeting_room(): MeetingRoom
+  + get_attendees(): dict[User, ParticipantResponse]
+  + get_accepted_participants(): List[User]
+  + get_declined_participants(): List[User]
+  + get_tentative_participants(): List[User]
+  + set_meeting_id(meeting_id: str): None
+  + set_subject(subject: str): None
+  + set_time_interval(time_interval: TimeInterval): None
+  + set_organizer(organizer: User): None
+  + set_meeting_room(meeting_room: MeetingRoom): None
+  + set_attendees(attendees: dict[User, ParticipantResponse]): None
+}
+
+class MeetingRoom {
+  - _id: int
+  - _name: str
+  - _capacity: int
+  - _booked_slots: List[TimeInterval]
+  - _calendar: Calendar
+  + get_id(): int
+  + get_name(): str
+  + get_capacity(): int
+  + get_calendar(): Calendar
+  + set_calendar(calendar: Calendar): None
+  + set_name(name: str): None
+  + get_booked_slots(): List[TimeInterval]
+  + add_booked_slot(booked_slot: TimeInterval): None
+  + remove_booked_slot(booked_slot: TimeInterval): None
+  + is_available_for(interval: TimeInterval, required_capacity: int): bool
+  + view_calendar(): None
+}
+
+class User {
+  - _name: str
+  - _email: str
+  - _calendar: Calendar
+  - _participant_type: ParticipantType
+  + get_name(): str
+  + set_name(name: str): None
+  + get_email(): str
+  + set_email(email: str): None
+  + get_calendar(): Calendar
+  + set_calendar(calendar: Calendar): None
+  + get_participant_type(): ParticipantType
+  + set_participant_type(participant_type: ParticipantType): None
+  + respond_to_invitation(participant: User, meeting: Meeting, response: ParticipantResponse): None
+  + view_calendar(): None
+}
+
+class Calendar {
+  - _meetings: dict[int, Meeting]
+  + add_meeting(meeting: Meeting): None
+  + remove_meeting(meeting: Meeting): None
+  + get_meeting(time_interval: TimeInterval): Meeting
+  + get_meetings(): List[Meeting]
+  + set_meetings(meetings: dict[int, Meeting]): None
+}
+
+class TimeInterval {
+  - _start_time: datetime
+  - _end_time: datetime
+  + get_start_time(): datetime
+  + get_end_time(): datetime
+  + overlaps_with(new_interval: TimeInterval): bool
+}
+
+class Notification {
+  - _notification_id: int
+  - _message: str
+  + send_meeting_invite_notification(user: User, meeting: Meeting): None
+  + send_cancel_meeting_notification(user: User, meeting: Meeting): None
+}
+
+enum ParticipantType {
+  ORGANIZER
+  ATTENDEE
+}
+
+enum ParticipantResponse {
+  ACCEPTED
+  DECLINED
+  TENTATIVE
+  NOT_RESPONDED
+}
+
+note right of Meeting
+  _attendees: User → ParticipantResponse
+  (tracks each invitee's RSVP status)
+end note
+
+note left of Calendar
+  _meetings: meeting_id (int) → Meeting object
+end note
+
+MeetingScheduler --> MeetingRoom : manages many
+MeetingScheduler --> Meeting : creates
+MeetingScheduler --> Notification : uses
+Meeting --> User : organizer
+Meeting --> MeetingRoom : held in
+Meeting --> TimeInterval : has
+Meeting --> ParticipantResponse : per user
+MeetingRoom --> Calendar : has
+MeetingRoom --> TimeInterval : booked slots
+User --> Calendar : has
+User --> ParticipantType : has
+@enduml

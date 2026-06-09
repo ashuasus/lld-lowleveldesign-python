@@ -1,0 +1,56 @@
+@startuml SnakeAndLadder
+skinparam classAttributeIconSize 0
+skinparam backgroundColor #FAFAFA
+title Snake and Ladder - Class Diagram
+
+class Game {
+  - board: Board
+  - dice: Dice
+  - players_list: deque[Player]
+  - winner: Player
+  + start_game(): None
+  - _initialize_game(): None
+  - _add_players(): None
+  - _find_player_turn(): Player
+  - _jump_check(player_new_position: int): int
+}
+
+class Board {
+  - cells: List[List[Cell]]
+  + get_cell(player_position: int): Cell
+  - _initialize_cells(board_size: int): None
+  - _add_snakes_ladders(cells: List[List[Cell]], number_of_snakes: int, number_of_ladders: int): None
+}
+
+class Cell {
+  - jump: Jump
+}
+
+class Jump {
+  - start: int
+  - end: int
+}
+
+class Player {
+  - id: str
+  - current_position: int
+}
+
+class Dice {
+  - dice_count: int
+  - min: int
+  - max: int
+  + roll_dice(): int
+}
+
+note bottom of Jump
+  start < end → Ladder (go up)
+  start > end → Snake (go down)
+end note
+
+Game --> Board : has
+Game --> Dice : has
+Game --> Player : manages many
+Board --> Cell : has many
+Cell --> Jump : optional
+@enduml

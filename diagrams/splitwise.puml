@@ -1,0 +1,153 @@
+@startuml Splitwise
+skinparam classAttributeIconSize 0
+skinparam backgroundColor #FAFAFA
+title Splitwise - Class Diagram
+
+class Splitwise {
+  - user_controller: UserController
+  - group_controller: GroupController
+  - balance_sheet_controller: BalanceSheetController
+  + demo(): None
+  - setup_user_and_group(): None
+  - _add_users_to_splitwise_app(): None
+}
+
+class UserController {
+  - user_list: List[User]
+  + add_user(user: User): None
+  + get_user(user_id: str): User
+  + get_all_users(): List[User]
+}
+
+class GroupController {
+  - group_list: List[Group]
+  + create_new_group(group_id: str, group_name: str, created_by_user: User): None
+  + get_group(group_id: str): Group
+}
+
+class Group {
+  - group_id: str
+  - group_name: str
+  - group_members: List[User]
+  - expense_list: List[Expense]
+  - expense_controller: ExpenseController
+  + add_member(member: User): None
+  + get_group_id(): str
+  + set_group_id(group_id: str): None
+  + set_group_name(group_name: str): None
+  + create_expense(expense_id: str, description: str, expense_amount: float, split_details: List[Split], split_type: ExpenseSplitType, paid_by_user: User): Expense
+}
+
+class User {
+  - user_id: str
+  - user_name: str
+  - user_expense_balance_sheet: UserExpenseBalanceSheet
+  + get_user_id(): str
+  + get_user_expense_balance_sheet(): UserExpenseBalanceSheet
+}
+
+class ExpenseController {
+  - balance_sheet_controller: BalanceSheetController
+  + create_expense(expense_id: str, description: str, expense_amount: float, split_details: List[Split], split_type: ExpenseSplitType, paid_by_user: User): Expense
+}
+
+class Expense {
+  - expense_id: str
+  - description: str
+  - expense_amount: float
+  - paid_by_user: User
+  - split_type: ExpenseSplitType
+  - split_details: List[Split]
+}
+
+class Split {
+  - user: User
+  - amount_owe: float
+  + get_user(): User
+  + set_user(user: User): None
+  + get_amount_owe(): float
+  + set_amount_owe(amount_owe: float): None
+}
+
+abstract class ExpenseSplit {
+  + {abstract} validate_split_request(split_list: List[Split], total_amount: float): None
+}
+
+class EqualExpenseSplit {
+  + validate_split_request(split_list: List[Split], total_amount: float): None
+}
+
+class UnequalExpenseSplit {
+  + validate_split_request(split_list: List[Split], total_amount: float): None
+}
+
+class PercentageExpenseSplit {
+  + validate_split_request(split_list: List[Split], total_amount: float): None
+}
+
+class SplitFactory {
+  + {static} get_split_object(split_type: ExpenseSplitType): ExpenseSplit
+}
+
+class BalanceSheetController {
+  + update_user_expense_balance_sheet(expense_paid_by: User, splits: List[Split], total_expense_amount: float): None
+  + show_balance_sheet_of_user(user: User): None
+}
+
+class UserExpenseBalanceSheet {
+  - user_vs_balance: dict[str, Balance]
+  - total_your_expense: float
+  - total_payment: float
+  - total_you_owe: float
+  - total_you_get_back: float
+  + get_user_vs_balance(): dict[str, Balance]
+  + get_total_your_expense(): float
+  + set_total_your_expense(total_your_expense: float): None
+  + get_total_you_owe(): float
+  + set_total_you_owe(total_you_owe: float): None
+  + get_total_you_get_back(): float
+  + set_total_you_get_back(total_you_get_back: float): None
+  + get_total_payment(): float
+  + set_total_payment(total_payment: float): None
+}
+
+class Balance {
+  - amount_owe: float
+  - amount_get_back: float
+  + get_amount_owe(): float
+  + set_amount_owe(amount_owe: float): None
+  + get_amount_get_back(): float
+  + set_amount_get_back(amount_get_back: float): None
+}
+
+enum ExpenseSplitType {
+  EQUAL
+  UNEQUAL
+  PERCENTAGE
+}
+
+note right of UserExpenseBalanceSheet
+  user_vs_balance: user_id (str) → Balance object
+  (net balance this user owes/is owed by each other user)
+end note
+
+Splitwise --> UserController : has
+Splitwise --> GroupController : has
+Splitwise --> BalanceSheetController : has
+GroupController --> Group : manages
+Group --> User : has many members
+Group --> Expense : has many
+Group --> ExpenseController : uses
+ExpenseController --> BalanceSheetController : updates
+ExpenseController --> SplitFactory : uses
+SplitFactory --> ExpenseSplit : creates
+ExpenseSplit <|-- EqualExpenseSplit
+ExpenseSplit <|-- UnequalExpenseSplit
+ExpenseSplit <|-- PercentageExpenseSplit
+Expense --> Split : has many
+Expense --> User : paid_by
+Split --> User : owed_by
+User --> UserExpenseBalanceSheet : has
+UserExpenseBalanceSheet --> Balance : has per user
+UserController --> User : manages
+@enduml

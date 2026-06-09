@@ -1,0 +1,146 @@
+@startuml ATM
+skinparam classAttributeIconSize 0
+skinparam backgroundColor #FAFAFA
+title ATM - Class Diagram
+
+class ATM <<Singleton>> {
+  - current_atm_state: ATMState
+  - no_of_two_thousand_notes: int
+  - no_of_five_hundred_notes: int
+  - no_of_one_hundred_notes: int
+  - _atm_balance: int
+  + {static} get_atm_object(): ATM
+  + get_current_atm_state(): ATMState
+  + set_current_atm_state(state: ATMState): None
+  + get_atm_balance(): int
+  + set_atm_balance(balance: int, two_k: int, five_hundred: int, one_hundred: int): None
+  + get_no_of_two_thousand_notes(): int
+  + get_no_of_five_hundred_notes(): int
+  + get_no_of_one_hundred_notes(): int
+  + deduct_atm_balance(amount: int): None
+  + deduct_two_thousand_notes(number: int): None
+  + deduct_five_hundred_notes(number: int): None
+  + deduct_one_hundred_notes(number: int): None
+  + print_current_atm_status(): None
+}
+
+class ATMRoom {
+  - atm: ATM
+  - user: User
+  + initialize(): None
+}
+
+class User {
+  - card: Card
+  - bank_account: UserBankAccount
+  + get_card(): Card
+  + set_card(card: Card): None
+}
+
+class Card {
+  - card_number: int
+  - cvv: int
+  - expiry_date: int
+  - holder_name: int
+  - bank_account: UserBankAccount
+  + is_correct_pin_entered(pin: int): bool
+  + get_bank_balance(): float
+  + deduct_bank_balance(amount: int): None
+  + set_bank_account(bank_account: UserBankAccount): None
+}
+
+class UserBankAccount {
+  - balance: int
+  + withdrawal_balance(amount: int): None
+  + get_balance(): int
+  + set_balance(balance: int): None
+}
+
+abstract class ATMState {
+  + insert_card(atm: ATM, card: Card): None
+  + authenticate_pin(atm: ATM, card: Card, pin: int): None
+  + select_operation(atm: ATM, card: Card, txn_type: TransactionType): None
+  + cash_withdrawal(atm: ATM, card: Card, withdraw_amount: int): None
+  + display_balance(atm: ATM, card: Card): None
+  + return_card(): None
+  + exit(atm: ATM): None
+}
+
+class IdleState {
+  + insert_card(atm: ATM, card: Card): None
+}
+
+class HasCardState {
+  + authenticate_pin(atm: ATM, card: Card, pin: int): None
+  + exit(atm: ATM): None
+  + return_card(): None
+}
+
+class SelectOperationState {
+  + select_operation(atm: ATM, card: Card, txn_type: TransactionType): None
+  + exit(atm: ATM): None
+  + return_card(): None
+}
+
+class CashWithdrawalState {
+  + cash_withdrawal(atm: ATM, card: Card, withdrawal_amount_request: int): None
+  + exit(atm: ATM): None
+  + return_card(): None
+}
+
+class CheckBalanceState {
+  + display_balance(atm: ATM, card: Card): None
+  + exit(atm: ATM): None
+  + return_card(): None
+}
+
+class CashWithdrawProcessor {
+  - next_cash_withdrawal_processor: CashWithdrawProcessor
+  + withdraw(atm: ATM, remaining_amount: int): None
+}
+
+class TwoThousandWithdrawProcessor {
+  + withdraw(atm: ATM, remaining_amount: int): None
+}
+
+class FiveHundredWithdrawProcessor {
+  + withdraw(atm: ATM, remaining_amount: int): None
+}
+
+class OneHundredWithdrawProcessor {
+  + withdraw(atm: ATM, remaining_amount: int): None
+}
+
+enum TransactionType {
+  CASH_WITHDRAWAL
+  BALANCE_CHECK
+}
+
+note right of ATMState
+  State Pattern:
+  ATM transitions between states
+  based on user actions
+end note
+
+note right of CashWithdrawProcessor
+  Chain of Responsibility:
+  2000 → 500 → 100
+end note
+
+ATMRoom --> ATM : has
+ATMRoom --> User : has
+User --> Card : has
+Card --> UserBankAccount : has
+ATM --> ATMState : current state
+ATMState <|-- IdleState
+ATMState <|-- HasCardState
+ATMState <|-- SelectOperationState
+ATMState <|-- CashWithdrawalState
+ATMState <|-- CheckBalanceState
+CashWithdrawProcessor <|-- TwoThousandWithdrawProcessor
+CashWithdrawProcessor <|-- FiveHundredWithdrawProcessor
+CashWithdrawProcessor <|-- OneHundredWithdrawProcessor
+CashWithdrawProcessor --> CashWithdrawProcessor : next
+CashWithdrawalState --> CashWithdrawProcessor : uses
+SelectOperationState --> TransactionType : uses
+@enduml

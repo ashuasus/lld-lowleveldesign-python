@@ -1,0 +1,216 @@
+@startuml Cricbuzz
+skinparam classAttributeIconSize 0
+skinparam backgroundColor #FAFAFA
+title Cricbuzz - Class Diagram
+
+class Match {
+  - team_a: Team
+  - team_b: Team
+  - match_date: date
+  - venue: str
+  - match_type: MatchType
+  - toss_winner: Team
+  - innings: List[InningDetails]
+  + start_match(): None
+  - _toss(team_a: Team, team_b: Team): Team
+}
+
+abstract class MatchType {
+  + {abstract} no_of_overs(): int
+  + {abstract} max_over_count_bowlers(): int
+}
+
+class T20Match {
+  + no_of_overs(): int
+  + max_over_count_bowlers(): int
+}
+
+class OneDayMatch {
+  + no_of_overs(): int
+  + max_over_count_bowlers(): int
+}
+
+class InningDetails {
+  - batting_team: Team
+  - bowling_team: Team
+  - match_type: MatchType
+  - overs: List[OverDetails]
+  + start(runs_to_win: int): None
+  + get_total_runs(): int
+}
+
+class OverDetails {
+  - over_number: int
+  - balls: List[BallDetails]
+  - extra_balls_count: int
+  - bowled_by: PlayerDetails
+  + start_over(batting_team: Team, bowling_team: Team, runs_to_win: int): bool
+}
+
+class BallDetails {
+  - ball_number: int
+  - ball_type: BallType
+  - run_type: RunType
+  - played_by: PlayerDetails
+  - bowled_by: PlayerDetails
+  - wicket: Wicket
+  - score_updater_observer_list: List[ScoreUpdaterObserver]
+  + start_ball_delivery(batting_team: Team, bowling_team: Team, over: OverDetails): None
+  - _notify_updaters(ball_details: BallDetails): None
+  - _get_run_type(): RunType
+  - _is_wicket_taken(): bool
+}
+
+class Team {
+  - team_name: str
+  - playing11: List[PlayerDetails]
+  - bench: List[PlayerDetails]
+  - batting_controller: PlayerBattingController
+  - bowling_controller: PlayerBowlingController
+  - is_winner: bool
+  + get_team_name(): str
+  + choose_next_bats_man(): None
+  + choose_next_bowler(max_over_count_per_bowler: int): None
+  + get_striker(): PlayerDetails
+  + set_striker(player: PlayerDetails): None
+  + get_non_striker(): PlayerDetails
+  + set_non_striker(player: PlayerDetails): None
+  + get_current_bowler(): PlayerDetails
+  + get_total_runs(): int
+  + print_batting_score_card(): None
+  + print_bowling_score_card(): None
+}
+
+class PlayerDetails {
+  - person: Person
+  - player_type: PlayerType
+  - batting_score_card: BattingScoreCard
+  - bowling_score_card: BowlingScoreCard
+  + print_batting_score_card(): None
+  + print_bowling_score_card(): None
+}
+
+class Person {
+  - name: str
+  - age: int
+  - address: str
+}
+
+class PlayerBattingController {
+  - yet_to_play: deque[PlayerDetails]
+  - striker: PlayerDetails
+  - non_striker: PlayerDetails
+  + get_next_player(): None
+  + get_striker(): PlayerDetails
+  + set_striker(player_details: PlayerDetails): None
+  + get_non_striker(): PlayerDetails
+  + set_non_striker(player_details: PlayerDetails): None
+}
+
+class PlayerBowlingController {
+  - bowlers_list: deque[PlayerDetails]
+  - bowler_vs_over_count: dict[PlayerDetails, int]
+  - current_bowler: PlayerDetails
+  + get_next_bowler(max_over_count_per_bowler: int): None
+  + get_current_bowler(): PlayerDetails
+}
+
+class BattingScoreCard {
+  - total_runs: int
+  - total_balls_played: int
+  - total_fours: int
+  - total_six: int
+  - strike_rate: float
+  - wicket_details: Wicket
+}
+
+class BowlingScoreCard {
+  - total_overs_count: int
+  - runs_given: int
+  - wickets_taken: int
+  - no_ball_count: int
+  - wide_ball_count: int
+  - economy_rate: float
+}
+
+class Wicket {
+  - wicket_type: WicketType
+  - taken_by: PlayerDetails
+  - over_detail: OverDetails
+  - ball_detail: BallDetails
+}
+
+abstract class ScoreUpdaterObserver {
+  + {abstract} update(ball_details: BallDetails): None
+}
+
+class BattingScoreUpdater {
+  + update(ball_details: BallDetails): None
+}
+
+class BowlingScoreUpdater {
+  + update(ball_details: BallDetails): None
+}
+
+enum BallType {
+  NORMAL
+  WIDEBALL
+  NOBALL
+}
+
+enum RunType {
+  ZERO
+  ONE
+  TWO
+  THREE
+  FOUR
+  SIX
+}
+
+enum WicketType {
+  RUNOUT
+  BOLD
+  CATCH
+}
+
+enum PlayerType {
+  BATSMAN
+  BOWLER
+  WICKETKEEPER
+  CAPTAIN
+  ALLROUNDER
+}
+
+note right of ScoreUpdaterObserver
+  Observer Pattern:
+  Each ball notifies
+  batting + bowling updaters
+end note
+
+note right of PlayerBowlingController
+  bowler_vs_over_count: PlayerDetails → overs_bowled_count
+  (used to enforce max overs per bowler)
+end note
+
+Match --> Team : has 2
+Match --> MatchType : has
+Match --> InningDetails : has 2
+MatchType <|-- T20Match
+MatchType <|-- OneDayMatch
+InningDetails --> Team : batting/bowling
+InningDetails --> OverDetails : has many
+OverDetails --> BallDetails : has 6
+BallDetails --> ScoreUpdaterObserver : notifies
+ScoreUpdaterObserver <|-- BattingScoreUpdater
+ScoreUpdaterObserver <|-- BowlingScoreUpdater
+BallDetails --> Wicket : optional
+Team --> PlayerBattingController : has
+Team --> PlayerBowlingController : has
+Team --> PlayerDetails : playing11
+PlayerDetails --> Person : has
+PlayerDetails --> BattingScoreCard : has
+PlayerDetails --> BowlingScoreCard : has
+Wicket --> WicketType : has
+BallDetails --> BallType : has
+BallDetails --> RunType : has
+@enduml

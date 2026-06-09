@@ -1,0 +1,196 @@
+@startuml PaymentGateway
+skinparam classAttributeIconSize 0
+skinparam backgroundColor #FAFAFA
+title Payment Gateway - Class Diagram
+
+class UserController {
+  - user_service: UserService
+  + add_user(user_do_obj: UserDO): UserDO
+  + get_user(user_id: int): UserDO
+}
+
+class UserService {
+  - {static} users_list: List[User]
+  + add_user(user_do: UserDO): UserDO
+  + get_user(user_id: int): UserDO
+}
+
+class User {
+  - user_id: int
+  - user_name: str
+  - email: str
+  + get_user_id(): int
+  + set_user_id(user_id: int): None
+  + get_user_name(): str
+  + set_user_name(user_name: str): None
+  + get_email(): str
+  + set_email(email: str): None
+}
+
+class UserDO {
+  - id: int
+  - name: str
+  - mail: str
+}
+
+class InstrumentController {
+  - instrument_controller_factory: InstrumentServiceFactory
+  + add_instrument(instrument: InstrumentDO): InstrumentDO
+  + get_all_instruments(user_id: int): List[InstrumentDO]
+  + get_instrument_by_id(user_id: int, instrument_id: int): InstrumentDO
+}
+
+class InstrumentServiceFactory {
+  + get_instrument_service(instrument_type: InstrumentType): InstrumentService
+}
+
+abstract class InstrumentService {
+  - {static} user_vs_instruments: dict[int, List[Instrument]]
+  + {abstract} add_instrument(instrument_do: InstrumentDO): InstrumentDO
+  + {abstract} get_instruments_by_user_id(user_id: int): List[InstrumentDO]
+}
+
+class BankService {
+  + add_instrument(instrument_do: InstrumentDO): InstrumentDO
+  + get_instruments_by_user_id(user_id: int): List[InstrumentDO]
+}
+
+class CardService {
+  + add_instrument(instrument_do: InstrumentDO): InstrumentDO
+  + get_instruments_by_user_id(user_id: int): List[InstrumentDO]
+}
+
+abstract class Instrument {
+  - instrument_id: int
+  - user_id: int
+  - instrument_type: InstrumentType
+  + get_instrument_id(): int
+  + set_instrument_id(instrument_id: int): None
+  + get_user_id(): int
+  + set_user_id(user_id: int): None
+  + get_instrument_type(): InstrumentType
+  + set_instrument_type(instrument_type: InstrumentType): None
+}
+
+class BankInstrument {
+  - bank_account_number: str
+  - ifsc_code: str
+  + get_bank_account_number(): str
+  + set_bank_account_number(bank_account_number: str): None
+  + get_ifsc_code(): str
+  + set_ifsc_code(ifsc_code: str): None
+}
+
+class CardInstrument {
+  - card_number: str
+  - cvv: str
+  + get_card_number(): str
+  + set_card_number(card_number: str): None
+  + get_cvv(): str
+  + set_cvv(cvv: str): None
+}
+
+class InstrumentDO {
+  - instrument_id: int
+  - user_id: int
+  - instrument_type: InstrumentType
+  - bank_account_number: str
+  - ifsc: str
+  - card_number: str
+  - cvv_number: str
+  + get_instrument_id(): int
+  + get_user_id(): int
+  + get_instrument_type(): InstrumentType
+}
+
+class TransactionController {
+  - txn_service: TransactionService
+  + make_payment(txn_do: TransactionDO): TransactionDO
+  + get_transaction_history(user_id: int): List[TransactionDO]
+}
+
+class TransactionService {
+  - {static} user_vs_transactions_list: dict[int, List[Transaction]]
+  - instrument_controller: InstrumentController
+  - processor: Processor
+  + make_payment(txn_do: TransactionDO): TransactionDO
+  + get_transaction_history(user_id: int): List[Transaction]
+}
+
+class Transaction {
+  - txn_id: int
+  - amount: int
+  - sender_id: int
+  - receiver_id: int
+  - debit_instrument_id: int
+  - credit_instrument_id: int
+  - status: TransactionStatus
+  + get_txn_id(): int
+  + get_amount(): int
+  + get_sender_id(): int
+  + get_receiver_id(): int
+  + get_status(): TransactionStatus
+  + set_status(status: TransactionStatus): None
+}
+
+class Processor {
+  + process_payment(sender_instrument_do: InstrumentDO, receiver_instrument_do: InstrumentDO): None
+}
+
+class TransactionDO {
+  - txn_id: int
+  - sender_id: int
+  - receiver_id: int
+  - debit_instrument_id: int
+  - credit_instrument_id: int
+  - amount: int
+  - status: TransactionStatus
+  + get_txn_id(): int
+  + get_sender_id(): int
+  + get_receiver_id(): int
+  + get_debit_instrument_id(): int
+  + get_credit_instrument_id(): int
+  + get_amount(): int
+  + set_txn_id(txn_id: int): None
+  + set_status(status: TransactionStatus): None
+}
+
+enum InstrumentType {
+  BANK
+  CARD
+}
+
+enum TransactionStatus {
+  SUCCESS
+  DENIED
+  PENDING
+}
+
+note right of InstrumentService
+  user_vs_instruments: user_id → [Instrument, ...]
+  (shared static map across BankService/CardService)
+end note
+
+note left of TransactionService
+  user_vs_transactions_list: user_id → [Transaction, ...]
+  (shared static map for all user transaction history)
+end note
+
+UserController --> UserService : uses
+UserService --> User : manages
+UserController ..> UserDO : uses DTO
+InstrumentController --> InstrumentServiceFactory : uses
+InstrumentServiceFactory --> InstrumentService : creates
+InstrumentService <|-- BankService
+InstrumentService <|-- CardService
+BankService --> BankInstrument : manages
+CardService --> CardInstrument : manages
+Instrument <|-- BankInstrument
+Instrument <|-- CardInstrument
+InstrumentController ..> InstrumentDO : uses DTO
+TransactionController --> TransactionService : uses
+TransactionService --> InstrumentController : uses
+TransactionService --> Processor : uses
+TransactionService --> Transaction : creates
+TransactionController ..> TransactionDO : uses DTO
+@enduml

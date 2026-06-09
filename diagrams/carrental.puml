@@ -1,0 +1,258 @@
+@startuml CarRental
+skinparam classAttributeIconSize 0
+skinparam backgroundColor #FAFAFA
+title Car Rental System - Class Diagram
+
+class VehicleRentalSystem {
+  - store_list: List[Store]
+  - user_list: List[User]
+  + add_store(store: Store): None
+  + add_user(user: User): None
+  + get_store(store_id: int): Store
+  + get_user(user_id: int): User
+  + remove_store(store_id: int): None
+  + remove_user(user_id: int): None
+}
+
+class Store {
+  - store_id: int
+  - store_location: Location
+  - inventory: VehicleInventoryManager
+  - reservation_manager: ReservationManager
+  - bill_manager: BillManager
+  - payment_manager: PaymentManager
+  + get_vehicles(vehicle_type: VehicleType, from_date: date, to_date: date): List[Vehicle]
+  + create_reservation(vehicle_id: int, user: User, from_date: date, to_date: date, reservation_type: ReservationType): Reservation
+  + cancel_reservation(reservation_id: int): None
+  + start_trip(reservation_id: int): None
+  + submit_vehicle(reservation_id: int): None
+  + generate_bill(reservation_id: int, billing_strategy: BillingStrategy): Bill
+  + make_payment(bill: Bill, payment_strategy: PaymentStrategy, payment_amount: float): Payment
+  + get_inventory(): VehicleInventoryManager
+  + get_store_id(): int
+}
+
+class User {
+  - user_id: int
+  - user_name: str
+  - driving_license_no: str
+}
+
+class Location {
+  - building_no: int
+  - area: str
+  - city: str
+  - state: str
+  - country: str
+  - pincode: int
+}
+
+class Vehicle {
+  - vehicle_id: int
+  - vehicle_number: str
+  - vehicle_type: VehicleType
+  - daily_rental_cost: float
+  - vehicle_status: VehicleStatus
+  + set_daily_rental_cost(daily_rental_cost: float): None
+  + set_status(vehicle_status: VehicleStatus): None
+  + get_vehicle_id(): int
+  + get_vehicle_type(): VehicleType
+  + get_vehicle_status(): VehicleStatus
+  + get_daily_rental_cost(): float
+  + get_vehicle_number(): str
+}
+
+class VehicleInventoryManager {
+  - vehicles: dict[int, Vehicle]
+  - vehicle_booking_ids: dict[int, List[int]]
+  - vehicle_locks: dict[int, Lock]
+  - reservation_repository: ReservationRepository
+  + add_vehicle(vehicle: Vehicle): None
+  + get_vehicle(vehicle_id: int): Vehicle
+  + set_reservation_repository(repo: ReservationRepository): None
+  + is_available(vehicle_id: int, from_date: date, to_date: date): bool
+  + reserve(vehicle_id: int, reservation_id: int, from_date: date, to_date: date): bool
+  + release(vehicle_id: int, reservation_id: int): None
+  + get_available_vehicles(vehicle_type: VehicleType, from_date: date, to_date: date): List[Vehicle]
+}
+
+class DateInterval {
+  - from: date
+  - to: date
+  + get_from(): date
+  + get_to(): date
+  + overlaps(other: DateInterval): bool
+}
+
+class ReservationManager {
+  - id_counter: itertools.count
+  - inventory: VehicleInventoryManager
+  - reservation_repository: ReservationRepository
+  + create_reservation(vehicle_id: int, user: User, from_date: date, to_date: date, reservation_type: ReservationType): Reservation
+  + cancel_reservation(reservation_id: int): None
+  + start_trip(reservation_id: int): None
+  + submit_vehicle(reservation_id: int): None
+  + find_by_id(reservation_id: int): Reservation
+  + remove(reservation_id: int): None
+}
+
+class ReservationRepository {
+  - reservations: dict[int, Reservation]
+  + save(reservation: Reservation): None
+  + find_by_id(reservation_id: int): Reservation
+  + remove(reservation_id: int): None
+  + get_all(): dict[int, Reservation]
+}
+
+class Reservation {
+  - reservation_id: int
+  - vehicle_id: int
+  - user_id: int
+  - date_booked_from: date
+  - date_booked_to: date
+  - reservation_type: ReservationType
+  - reservation_status: ReservationStatus
+  + get_reservation_id(): int
+  + get_vehicle_id(): int
+  + get_user_id(): int
+  + get_date_booked_from(): date
+  + get_date_booked_to(): date
+  + get_reservation_type(): ReservationType
+  + get_reservation_status(): ReservationStatus
+  + set_reservation_status(status: ReservationStatus): None
+}
+
+class BillManager {
+  - billing_strategy: BillingStrategy
+  - bills: dict[int, Bill]
+  + generate_bill(reservation: Reservation): Bill
+  + get_bill(bill_id: int): Bill
+  + set_billing_strategy(billing_strategy: BillingStrategy): None
+}
+
+class Bill {
+  - bill_id: int
+  - reservation_id: int
+  - total_bill_amount: float
+  - bill_paid: bool
+  + get_bill_id(): int
+  + get_reservation_id(): int
+  + get_total_bill_amount(): float
+  + is_bill_paid(): bool
+  + set_bill_paid(bill_paid: bool): None
+}
+
+abstract class BillingStrategy {
+  + {abstract} generate_bill(reservation: Reservation): Bill
+}
+
+class DailyBillingStrategy {
+  - bill_id_counter: itertools.count
+  - vehicle_inventory_manager: VehicleInventoryManager
+  + generate_bill(reservation: Reservation): Bill
+}
+
+class PaymentManager {
+  - payment_strategy: PaymentStrategy
+  - payments: dict[int, Payment]
+  + make_payment(bill: Bill, payment_amount: float): Payment
+  + get_payment(payment_id: int): Payment
+  + get_payments_for_bill(bill_id: int): List[Payment]
+  + set_payment_strategy(payment_strategy: PaymentStrategy): None
+}
+
+class Payment {
+  - payment_id: int
+  - bill_id: int
+  - amount_paid: float
+  - payment_mode: PaymentMode
+  - payment_date: datetime
+  + get_payment_id(): int
+  + get_bill_id(): int
+  + get_amount_paid(): float
+  + get_payment_mode(): PaymentMode
+  + get_payment_date(): datetime
+}
+
+abstract class PaymentStrategy {
+  + {abstract} process_payment(bill: Bill, payment_amount: float): Payment
+}
+
+class UPIPaymentStrategy {
+  - id_counter: itertools.count
+  + process_payment(bill: Bill, payment_amount: float): Payment
+}
+
+enum VehicleType {
+  TWO_WHEELER
+  FOUR_WHEELER
+}
+
+enum VehicleStatus {
+  AVAILABLE
+  BOOKED
+  MAINTENANCE
+}
+
+enum ReservationStatus {
+  SCHEDULED
+  IN_USE
+  COMPLETED
+  CANCELLED
+}
+
+enum ReservationType {
+  HOURLY
+  DAILY
+}
+
+enum PaymentMode {
+  CASH
+  ONLINE
+  UPI
+}
+
+note right of VehicleInventoryManager
+  vehicles: vehicle_id → Vehicle object
+  vehicle_booking_ids: vehicle_id → [reservation_id, ...]
+  vehicle_locks: vehicle_id → threading.Lock
+end note
+
+note left of ReservationRepository
+  reservations: reservation_id → Reservation object
+end note
+
+note right of BillManager
+  bills: bill_id → Bill object
+end note
+
+note left of PaymentManager
+  payments: payment_id → Payment object
+end note
+
+VehicleRentalSystem --> Store : has many
+VehicleRentalSystem --> User : has many
+Store --> VehicleInventoryManager : has
+Store --> ReservationManager : has
+Store --> BillManager : has
+Store --> PaymentManager : has
+Store --> Location : at
+VehicleInventoryManager --> Vehicle : manages
+VehicleInventoryManager --> ReservationRepository : reads
+VehicleInventoryManager ..> DateInterval : uses
+ReservationManager --> ReservationRepository : uses
+ReservationManager --> VehicleInventoryManager : uses
+ReservationRepository --> Reservation : stores
+BillManager --> BillingStrategy : uses
+BillingStrategy <|-- DailyBillingStrategy
+DailyBillingStrategy --> VehicleInventoryManager : reads cost from
+PaymentManager --> PaymentStrategy : uses
+PaymentStrategy <|-- UPIPaymentStrategy
+Bill --> Reservation : for
+Payment --> Bill : for
+Vehicle --> VehicleType : has
+Vehicle --> VehicleStatus : has
+Reservation --> ReservationStatus : has
+Reservation --> ReservationType : has
+Payment --> PaymentMode : has
+@enduml

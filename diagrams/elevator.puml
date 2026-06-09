@@ -1,0 +1,127 @@
+@startuml Elevator
+skinparam classAttributeIconSize 0
+skinparam backgroundColor #FAFAFA
+title Elevator - Class Diagram
+
+class Building {
+  - floors: List[Floor]
+  + get_floor(n: int): Floor
+}
+
+class Floor {
+  - floor_number: int
+  - up_button: ExternalButton
+  - down_button: ExternalButton
+  + press_up_button(): None
+  + press_down_button(): None
+}
+
+class ExternalButton {
+  - _dispatcher: ExternalDispatcher
+  + press_button(floor: int, direction: ElevatorDirection): None
+}
+
+class ExternalDispatcher {
+  - _scheduler: ElevatorScheduler
+  + submit_external_request(floor: int, direction: ElevatorDirection): None
+}
+
+class ElevatorScheduler {
+  - _controllers: List[ElevatorController]
+  - _strategy: ElevatorSelectionStrategy
+  + assign_elevator(floor: int, direction: ElevatorDirection): ElevatorController
+  + set_strategy(strategy: ElevatorSelectionStrategy): None
+}
+
+abstract class ElevatorSelectionStrategy {
+  + {abstract} select_elevator(controllers: List[ElevatorController], request_floor: int, direction: ElevatorDirection): ElevatorController
+}
+
+class NearestElevatorStrategy {
+  + select_elevator(controllers: List[ElevatorController], request_floor: int, direction: ElevatorDirection): ElevatorController
+}
+
+class LeastBusyStrategy {
+  + select_elevator(controllers: List[ElevatorController], request_floor: int, direction: ElevatorDirection): ElevatorController
+}
+
+class InternalButton {
+  - _controller: ElevatorController
+  + press_button(destination_floor: int): None
+}
+
+class InternalDispatcher <<Singleton>> {
+  + {static} get_instance(): InternalDispatcher
+  + submit_internal_request(destination_floor: int, controller: ElevatorController): None
+}
+
+class ElevatorController {
+  - elevator_car: ElevatorCar
+  - up_min_pq: List[int]
+  - down_max_pq: List[int]
+  - _condition: threading.Condition
+  - daemon: bool
+  + submit_request(destination_floor: int): None
+  - _enqueue_request(destination_floor: int): None
+  - _control_elevator(): None
+  + run(): None
+}
+
+note right of ElevatorController
+  Extends threading.Thread
+  SCAN Algorithm:
+  up_min_pq → serve lowest first
+  down_max_pq → serve highest first
+  _condition.wait() → sleep when idle
+  _condition.notify() → wake on request
+end note
+
+class ElevatorCar {
+  - id: int
+  - current_floor: int
+  - next_floor_stoppage: int
+  - moving_direction: ElevatorDirection
+  - door: Door
+  + move_elevator(destination_floor: int): None
+  + show_display(): None
+  + set_current_floor(floor: int): None
+}
+
+class Door {
+  - door_state: DoorState
+  + open_door(id: int): None
+  + close_door(id: int): None
+}
+
+enum ElevatorDirection {
+  UP
+  DOWN
+  IDLE
+}
+
+enum DoorState {
+  DOOR_OPEN
+  DOOR_CLOSED
+}
+
+note bottom of ElevatorSelectionStrategy
+  Strategy Pattern:
+  Swap NearestElevator ↔ LeastBusy
+  at runtime
+end note
+
+Building --> Floor : has many
+Floor --> ExternalButton : up + down
+ExternalButton --> ExternalDispatcher : calls
+ExternalDispatcher --> ElevatorScheduler : uses
+ElevatorScheduler --> ElevatorSelectionStrategy : uses
+ElevatorSelectionStrategy <|-- NearestElevatorStrategy
+ElevatorSelectionStrategy <|-- LeastBusyStrategy
+ElevatorScheduler --> ElevatorController : picks one
+InternalButton --> InternalDispatcher : calls
+InternalDispatcher --> ElevatorController : routes directly
+ElevatorController --> ElevatorCar : controls
+ElevatorCar --> Door : has
+ElevatorCar --> ElevatorDirection : has
+Door --> DoorState : has
+@enduml

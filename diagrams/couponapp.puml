@@ -1,0 +1,72 @@
+@startuml CouponApp
+skinparam classAttributeIconSize 0
+skinparam backgroundColor #FAFAFA
+title Coupon Application - Class Diagram
+
+abstract class Product {
+  - name: str
+  - original_price: float
+  - type: ProductType
+  + {abstract} get_price(): float
+  + get_name(): str
+  + get_type(): ProductType
+}
+
+class Item1 {
+  + get_price(): float
+}
+class Item2 {
+  + get_price(): float
+}
+class Item3 {
+  + get_price(): float
+}
+class Item4 {
+  + get_price(): float
+}
+
+class CouponDecorator {
+  - product: Product
+  - discount_percentage: int
+}
+
+class PercentageCouponDecorator {
+  + get_price(): float
+}
+
+class TypeCouponDecorator {
+  - eligible_types: List[ProductType]
+  + get_price(): float
+}
+
+class ShoppingCart {
+  - product_list: List[Product]
+  + add_to_cart(product: Product): None
+  + get_total_price(): float
+}
+
+enum ProductType {
+  FURNITURE
+  ELECTRONICS
+  CLOTHES
+  PHARMACY
+}
+
+note right of CouponDecorator
+  Decorator Pattern:
+  Wraps product with discount logic
+  Coupons can be stacked:
+  TypeCoupon(PercentageCoupon(item))
+end note
+
+Product <|-- Item1
+Product <|-- Item2
+Product <|-- Item3
+Product <|-- Item4
+Product <|-- CouponDecorator
+CouponDecorator <|-- PercentageCouponDecorator
+CouponDecorator <|-- TypeCouponDecorator
+CouponDecorator --> Product : wraps
+ShoppingCart --> Product : has many (decorated)
+Product --> ProductType : has
+@enduml

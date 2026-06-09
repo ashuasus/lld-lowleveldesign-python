@@ -1,0 +1,60 @@
+@startuml TicTacToe
+skinparam classAttributeIconSize 0
+skinparam backgroundColor #FAFAFA
+title Tic Tac Toe - Class Diagram
+
+class TicTacToeGame {
+  - players: deque[Player]
+  - game_board: Board
+  - winner: Player
+  + initialize_game(): None
+  + start_game(): GameStatus
+  + check_for_winner(row: int, column: int, piece_type: PieceType): bool
+}
+
+class Board {
+  - size: int
+  - board: List[List[PlayingPiece]]
+  + add_piece(row: int, column: int, playing_piece: PlayingPiece): bool
+  + get_free_cells(): List[tuple[int, int]]
+  + print_board(): None
+}
+
+class Player {
+  - name: str
+  - playing_piece: PlayingPiece
+  + get_name(): str
+  + set_name(name: str): None
+  + get_playing_piece(): PlayingPiece
+  + set_playing_piece(playing_piece: PlayingPiece): None
+}
+
+abstract class PlayingPiece {
+  - piece_type: PieceType
+}
+
+class PlayingPieceX {
+}
+
+class PlayingPieceO {
+}
+
+enum PieceType {
+  X
+  O
+}
+
+enum GameStatus {
+  WIN
+  DRAW
+}
+
+TicTacToeGame --> Board : has
+TicTacToeGame --> Player : manages many
+Player --> PlayingPiece : has
+PlayingPiece <|-- PlayingPieceX
+PlayingPiece <|-- PlayingPieceO
+PlayingPiece --> PieceType : has
+Board --> PlayingPiece : stores
+TicTacToeGame --> GameStatus : returns
+@enduml

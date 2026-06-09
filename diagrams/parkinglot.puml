@@ -1,0 +1,143 @@
+@startuml ParkingLot
+skinparam classAttributeIconSize 0
+skinparam backgroundColor #FAFAFA
+title Parking Lot - Class Diagram
+
+class ParkingLot {
+  - _building: ParkingBuilding
+  - _entrance_gate: EntranceGate
+  - _exit_gate: ExitGate
+  + vehicle_arrives(vehicle: Vehicle): Ticket
+  + vehicle_exits(ticket: Ticket, payment: Payment): None
+}
+
+class ParkingBuilding {
+  - _levels: List[ParkingLevel]
+  + allocate(vehicle: Vehicle): Ticket
+  + release(ticket: Ticket): None
+}
+
+class ParkingLevel {
+  - _level_number: int
+  - _managers: dict[VehicleType, ParkingSpotManager]
+  + has_availability(vehicle_type: VehicleType): bool
+  + park(vehicle_type: VehicleType): ParkingSpot
+  + un_park(vehicle_type: VehicleType, spot: ParkingSpot): None
+  + get_level_number(): int
+}
+
+class EntranceGate {
+  + enter(building: ParkingBuilding, vehicle: Vehicle): Ticket
+}
+
+class ExitGate {
+  - _cost_computation: CostComputation
+  + complete_exit(building: ParkingBuilding, ticket: Ticket, payment: Payment): None
+  - _calculate_price(ticket: Ticket): float
+}
+
+class Ticket {
+  - _vehicle: Vehicle
+  - _level: ParkingLevel
+  - _spot: ParkingSpot
+  - _entry_time: datetime
+  + get_vehicle(): Vehicle
+  + get_level(): ParkingLevel
+  + get_spot(): ParkingSpot
+  + get_entry_time(): datetime
+}
+
+abstract class ParkingSpotManager {
+  - spots: List[ParkingSpot]
+  - strategy: ParkingSpotLookupStrategy
+  - _lock: threading.Lock
+  + park(): ParkingSpot
+  + un_park(spot: ParkingSpot): None
+  + has_free_spot(): bool
+}
+
+class TwoWheelerSpotManager {
+}
+
+class FourWheelerSpotManager {
+}
+
+class ParkingSpot {
+  - _spot_id: str
+  - _is_free: bool
+  + occupy_spot(): None
+  + release_spot(): None
+  + is_spot_free(): bool
+  + get_spot_id(): str
+}
+
+class Vehicle {
+  - vehicle_number: str
+  - vehicle_type: VehicleType
+  + get_vehicle_number(): str
+  + get_vehicle_type(): VehicleType
+}
+
+abstract class Payment {
+  + {abstract} pay(amount: float): bool
+}
+
+class CashPayment {
+  + pay(amount: float): bool
+}
+
+class UpiPayment {
+  + pay(amount: float): bool
+}
+
+abstract class PricingStrategy {
+  + {abstract} calculate(ticket: Ticket): float
+}
+
+class FixedPricingStrategy {
+  + calculate(ticket: Ticket): float
+}
+
+class CostComputation {
+  - _pricing_strategy: PricingStrategy
+  + compute(ticket: Ticket): float
+}
+
+abstract class ParkingSpotLookupStrategy {
+  + {abstract} select_spot(spots: List[ParkingSpot]): ParkingSpot
+}
+
+class RandomLookupStrategy {
+  + select_spot(spots: List[ParkingSpot]): ParkingSpot
+}
+
+enum VehicleType {
+  TWO_WHEELER
+  FOUR_WHEELER
+}
+
+note right of ParkingLevel
+  _managers: VehicleType → ParkingSpotManager
+  (e.g. TWO_WHEELER → TwoWheelerSpotManager)
+end note
+
+ParkingLot --> ParkingBuilding : has
+ParkingLot --> EntranceGate : has
+ParkingLot --> ExitGate : has
+ParkingBuilding --> ParkingLevel : has many
+ParkingLevel --> ParkingSpotManager : manages per type
+ParkingSpotManager <|-- TwoWheelerSpotManager
+ParkingSpotManager <|-- FourWheelerSpotManager
+ParkingSpotManager --> ParkingSpot : manages many
+ParkingSpotManager --> ParkingSpotLookupStrategy : uses
+ParkingSpotLookupStrategy <|-- RandomLookupStrategy
+ExitGate --> CostComputation : uses
+CostComputation --> PricingStrategy : uses
+PricingStrategy <|-- FixedPricingStrategy
+Payment <|-- CashPayment
+Payment <|-- UpiPayment
+Ticket --> Vehicle : has
+Ticket --> ParkingLevel : has
+Ticket --> ParkingSpot : has
+Vehicle --> VehicleType : has
+@enduml

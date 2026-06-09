@@ -1,0 +1,148 @@
+@startuml Chess
+skinparam classAttributeIconSize 0
+skinparam backgroundColor #FAFAFA
+title Chess - Class Diagram
+
+class Game {
+  - _player1: Player
+  - _player2: Player
+  - _board: Board
+  - _current_turn: Player
+  - _status: GameStatus
+  - _moves_history: List[Move]
+  + play_move(player: Player, start: Position, end: Position): bool
+  + get_status(): GameStatus
+  + set_status(status: GameStatus): None
+  + get_board(): Board
+  + set_board(board: Board): None
+  + display(): None
+  + display_moves_history(): None
+}
+
+class Board {
+  - cells: List[List[Cell]]
+  + get_cell(position: Position): Cell
+  - _init_pieces(): None
+}
+
+class Cell {
+  - _piece: Piece
+  - _position: Position
+  + get_piece(): Piece
+  + set_piece(piece: Piece): None
+  + get_position(): Position
+  + set_position(position: Position): None
+}
+
+class Position {
+  - _row: int
+  - _col: int
+  + get_row(): int
+  + get_col(): int
+  + is_valid(): bool
+}
+
+class Move {
+  - _player: Player
+  - _start: Cell
+  - _end: Cell
+  - _piece_moved: Piece
+  - _piece_killed: Piece
+  + get_player(): Player
+  + get_start(): Cell
+  + get_end(): Cell
+  + get_piece_moved(): Piece
+  + get_piece_killed(): Piece
+  + set_piece_moved(piece_moved: Piece): None
+  + set_piece_killed(piece_killed: Piece): None
+}
+
+class Player {
+  - _name: str
+  - _playing_side: PieceColour
+  + get_name(): str
+  + set_name(name: str): None
+  + get_playing_side(): PieceColour
+  + set_playing_side(playing_side: PieceColour): None
+}
+
+abstract class Piece {
+  - _colour: PieceColour
+  - _is_captured: bool
+  - _piece_type: PieceType
+  + get_colour(): PieceColour
+  + set_colour(colour: PieceColour): None
+  + is_captured(): bool
+  + set_captured(captured: bool): None
+  + get_piece_type(): PieceType
+  + {abstract} is_valid_move(board: Board, start: Cell, end: Cell): bool
+  # _is_path_clear(board: Board, start: Cell, end: Cell): bool
+}
+
+class King {
+  + is_valid_move(board: Board, start: Cell, end: Cell): bool
+}
+
+class Queen {
+  + is_valid_move(board: Board, start: Cell, end: Cell): bool
+}
+
+class Rook {
+  + is_valid_move(board: Board, start: Cell, end: Cell): bool
+}
+
+class Bishop {
+  + is_valid_move(board: Board, start: Cell, end: Cell): bool
+}
+
+class Knight {
+  + is_valid_move(board: Board, start: Cell, end: Cell): bool
+}
+
+class Pawn {
+  + is_valid_move(board: Board, start: Cell, end: Cell): bool
+  - _has_moved_before(start: Cell): bool
+}
+
+enum PieceType {
+  KING
+  QUEEN
+  BISHOP
+  KNIGHT
+  ROOK
+  PAWN
+}
+
+enum PieceColour {
+  WHITE
+  BLACK
+}
+
+enum GameStatus {
+  IN_PROGRESS
+  WHITE_WIN
+  BLACK_WIN
+  DRAW
+  RESIGNATION
+}
+
+Game --> Board : has
+Game --> Player : has 2
+Game --> Move : history
+Game --> GameStatus : has
+Board --> Cell : has 8x8
+Cell --> Piece : optional
+Cell --> Position : has
+Move --> Cell : start/end
+Move --> Piece : moved/killed
+Move --> Player : made by
+Player --> PieceColour : has
+Piece <|-- King
+Piece <|-- Queen
+Piece <|-- Rook
+Piece <|-- Bishop
+Piece <|-- Knight
+Piece <|-- Pawn
+Piece --> PieceColour : has
+Piece --> PieceType : has
+@enduml

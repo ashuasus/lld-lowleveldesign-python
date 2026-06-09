@@ -1,0 +1,165 @@
+@startuml BookMyShow
+skinparam classAttributeIconSize 0
+skinparam backgroundColor #FAFAFA
+title BookMyShow - Class Diagram
+
+class BookMyShowApp {
+  - _theatre_controller: TheatreController
+  - _booking_controller: BookingController
+  + initialize(): None
+  + user_flow(): None
+}
+
+class TheatreController {
+  - _theatre_service: TheatreService
+  + add_theatre(theatre: Theatre): None
+  + get_movies(city: City, date: date): Set[Movie]
+  + get_theatres(city: City, movie: Movie, date: date): List[Theatre]
+  + get_shows(movie: Movie, date: date, theatre: Theatre): List[Show]
+}
+
+class BookingController {
+  - _booking_service: BookingService
+  + create_booking(user: User, show: Show, seats: List[int]): Booking
+  + get_booking(booking_id: UUID): Booking
+  + get_bookings_for_user(user: User): List[Booking]
+}
+
+class TheatreService {
+  - _city_theatres: dict[City, List[Theatre]]
+  + add_theatre(theatre: Theatre): None
+  + get_movies(city: City, date: date): Set[Movie]
+  + get_theatres(city: City, movie: Movie, date: date): List[Theatre]
+  + get_shows(movie: Movie, date: date, theatre: Theatre): List[Show]
+}
+
+class BookingService {
+  - _bookings: dict[UUID, Booking]
+  + book(user: User, show: Show, seats: List[int]): Booking
+  + get_booking(booking_id: UUID): Booking
+  + get_bookings_for_user(user: User): List[Booking]
+}
+
+class Theatre {
+  - _name: str
+  - _city: City
+  - _screens: List[Screen]
+  + get_city(): City
+  + get_name(): str
+  + get_screens(): List[Screen]
+}
+
+class Screen {
+  - _screen_id: int
+  - _seats: List[Seat]
+  - _shows_by_date: dict[date, List[Show]]
+  + get_seats(): List[Seat]
+  + add_show(show: Show): None
+  + get_shows(date: date): List[Show]
+}
+
+class Show {
+  - _movie: Movie
+  - _show_date: date
+  - _start_time: time
+  - _seat_status_map: dict[int, SeatStatus]
+  - _seat_locks: dict[int, threading.Lock]
+  + get_movie(): Movie
+  + get_show_date(): date
+  + get_start_time(): time
+  + lock_seats(seat_ids: List[int]): bool
+  + confirm_seats(seat_ids: List[int]): None
+  + release_seats(seat_ids: List[int]): None
+}
+
+class Seat {
+  - _seat_id: int
+  - _category: SeatCategory
+  + get_seat_id(): int
+}
+
+class Movie {
+  - _name: str
+  + get_name(): str
+}
+
+class Booking {
+  - _booking_id: UUID
+  - _user: User
+  - _show: Show
+  - _seats: List[int]
+  - _payment: Payment
+  + get_booking_id(): UUID
+  + get_user(): User
+  + get_payment(): Payment
+}
+
+class Payment {
+  - _payment_id: UUID
+  - _status: PaymentStatus
+  + get_payment_id(): UUID
+  + get_status(): PaymentStatus
+}
+
+class User {
+  - _user_id: str
+  - _name: str
+}
+
+enum City {
+  BANGALORE
+  DELHI
+}
+
+enum SeatCategory {
+  SILVER
+  GOLD
+  PLATINUM
+}
+
+enum SeatStatus {
+  AVAILABLE
+  LOCKED
+  BOOKED
+}
+
+enum PaymentStatus {
+  SUCCESS
+  FAILED
+}
+
+note right of Show
+  Uses threading.Lock per seat
+  for concurrent booking safety
+  _seat_status_map: seat_id → SeatStatus
+  _seat_locks: seat_id → threading.Lock
+end note
+
+note left of TheatreService
+  _city_theatres: City → [Theatre, ...]
+end note
+
+note right of BookingService
+  _bookings: booking_id (UUID) → Booking object
+end note
+
+note left of Screen
+  _shows_by_date: date → [Show, ...]
+end note
+
+BookMyShowApp --> TheatreController : uses
+BookMyShowApp --> BookingController : uses
+TheatreController --> TheatreService : uses
+BookingController --> BookingService : uses
+TheatreService --> Theatre : stores
+Theatre --> Screen : has many
+Theatre --> City : in
+Screen --> Seat : has many
+Screen --> Show : has many
+Show --> Movie : plays
+Show --> SeatStatus : per seat
+Booking --> User : for
+Booking --> Show : for
+Booking --> Payment : has
+Seat --> SeatCategory : has
+@enduml
