@@ -1,7 +1,9 @@
 name: Daily Commit
 
 on:
-  workflow_dispatch: # trigger manually from GitHub Actions tab
+  schedule:
+    - cron: '0 10 * * *'
+  workflow_dispatch:
 
 jobs:
   commit-one-file:
