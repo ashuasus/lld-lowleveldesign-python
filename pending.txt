@@ -1,4 +1,3 @@
-additionalpatterns/mvc/controller/__init__.py
 additionalpatterns/mvc/controller/blog_controller.py
 additionalpatterns/mvc/model/__init__.py
 additionalpatterns/mvc/model/blog.py
