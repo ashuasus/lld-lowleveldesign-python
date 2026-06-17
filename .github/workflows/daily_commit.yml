@@ -3,7 +3,7 @@ name: Daily Commit
 on:
   schedule:
     - cron: '0 10 * * *'  # runs every day at 10:00 AM UTC
-  workflow_dispatch: # also allows manual trigger
+  workflow_dispatch:
 
 jobs:
   commit-one-file:
@@ -26,20 +26,15 @@ jobs:
             exit 0
           fi
 
-          # Strip trailing whitespace from each line (valid linting cleanup)
           sed -i 's/[[:space:]]*$//' "$FILE"
-
-          # Ensure file ends with a single newline
           sed -i -e '$a\' "$FILE"
 
-          # Remove FILE from pending.txt
           grep -v "^${FILE}$" pending.txt > pending.tmp && mv pending.tmp pending.txt
 
-          # Log to COMMIT_LOG.md
           echo "| $(date '+%Y-%m-%d') | \`$FILE\` |" >> COMMIT_LOG.md
 
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "ashuasus"
+          git config user.email "abhinav.singh1911@gmail.com"
 
           git add "$FILE" pending.txt COMMIT_LOG.md
           git commit -m "cleanup: trailing whitespace in $(basename $FILE)"
