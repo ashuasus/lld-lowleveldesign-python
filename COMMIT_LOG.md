@@ -9,3 +9,4 @@
 | 2026-06-15 | `additionalpatterns/mvc/model/__init__.py` |
 | 2026-06-16 | `additionalpatterns/mvc/model/blog.py` |
 | 2026-06-17 | `additionalpatterns/mvc/mvc_pattern_demo.py` |
+| 2026-06-17 | `additionalpatterns/mvc/view/__init__.py` |
