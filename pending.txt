@@ -1,4 +1,3 @@
-additionalpatterns/mvc/view/blog_view.py
 additionalpatterns/nullobject/__init__.py
 additionalpatterns/nullobject/bike.py
 additionalpatterns/nullobject/car.py
