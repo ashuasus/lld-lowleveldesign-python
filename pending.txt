@@ -1,4 +1,3 @@
-additionalpatterns/nullobject/bike.py
 additionalpatterns/nullobject/car.py
 additionalpatterns/nullobject/problem/__init__.py
 additionalpatterns/nullobject/problem/problem_demo.py
