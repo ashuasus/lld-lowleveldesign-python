@@ -13,3 +13,4 @@
 | 2026-06-18 | `additionalpatterns/mvc/view/blog_view.py` |
 | 2026-06-19 | `additionalpatterns/nullobject/__init__.py` |
 | 2026-06-20 | `additionalpatterns/nullobject/bike.py` |
+| 2026-06-21 | `additionalpatterns/nullobject/car.py` |
