@@ -15,3 +15,4 @@
 | 2026-06-20 | `additionalpatterns/nullobject/bike.py` |
 | 2026-06-21 | `additionalpatterns/nullobject/car.py` |
 | 2026-06-22 | `additionalpatterns/nullobject/problem/__init__.py` |
+| 2026-06-23 | `additionalpatterns/nullobject/problem/problem_demo.py` |
