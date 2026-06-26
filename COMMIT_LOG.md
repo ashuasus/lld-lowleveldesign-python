@@ -18,3 +18,4 @@
 | 2026-06-23 | `additionalpatterns/nullobject/problem/problem_demo.py` |
 | 2026-06-24 | `additionalpatterns/nullobject/problem/vehicle_factory.py` |
 | 2026-06-25 | `additionalpatterns/nullobject/solution/__init__.py` |
+| 2026-06-26 | `additionalpatterns/nullobject/solution/null_vehicle.py` |

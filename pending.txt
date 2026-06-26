@@ -1,4 +1,3 @@
-additionalpatterns/nullobject/solution/null_vehicle.py
 additionalpatterns/nullobject/solution/solution_demo.py
 additionalpatterns/nullobject/solution/vehicle_factory.py
 additionalpatterns/nullobject/vehicle.py
