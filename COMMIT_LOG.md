@@ -21,3 +21,4 @@
 | 2026-06-26 | `additionalpatterns/nullobject/solution/null_vehicle.py` |
 | 2026-06-27 | `additionalpatterns/nullobject/solution/solution_demo.py` |
 | 2026-06-28 | `additionalpatterns/nullobject/solution/vehicle_factory.py` |
+| 2026-06-29 | `additionalpatterns/nullobject/vehicle.py` |
