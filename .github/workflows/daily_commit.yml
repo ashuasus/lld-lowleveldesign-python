@@ -26,19 +26,19 @@ jobs:
           FILES_TO_ADD=""
 
           for i in $(seq 1 $COUNT); do
-            FILE=$(grep -v "^\s*$" pending.txt | head -n 1)
+            FILE=$(grep -v '^\s*$' pending.txt | head -n 1)
 
             if [ -z "$FILE" ]; then
               echo "No more pending files."
               break
             fi
 
-            sed -i "s/[[:space:]]*$//" "$FILE"
-            sed -i -e "\$a\" "$FILE"
+            sed -i 's/[[:space:]]*$//' "$FILE"
+            sed -i -e '$a\' "$FILE"
 
             grep -v "^${FILE}$" pending.txt > pending.tmp && mv pending.tmp pending.txt
 
-            echo "| $(date "+%Y-%m-%d") | \`$FILE\` |" >> COMMIT_LOG.md
+            echo "| $(date '+%Y-%m-%d') | \`$FILE\` |" >> COMMIT_LOG.md
 
             FILES_TO_ADD="$FILES_TO_ADD $FILE"
             COMMITTED=$((COMMITTED + 1))
