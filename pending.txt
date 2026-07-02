@@ -1,4 +1,3 @@
-behavioralpatterns/chainofresponsibility/__init__.py
 behavioralpatterns/chainofresponsibility/debug_log_processor.py
 behavioralpatterns/chainofresponsibility/error_log_processor.py
 behavioralpatterns/chainofresponsibility/fatal_log_processor.py

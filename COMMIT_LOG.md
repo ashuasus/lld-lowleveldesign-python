@@ -23,3 +23,4 @@
 | 2026-06-28 | `additionalpatterns/nullobject/solution/vehicle_factory.py` |
 | 2026-06-29 | `additionalpatterns/nullobject/vehicle.py` |
 | 2026-06-30 | `behavioralpatterns/__init__.py` |
+| 2026-07-02 | `behavioralpatterns/chainofresponsibility/__init__.py` |
