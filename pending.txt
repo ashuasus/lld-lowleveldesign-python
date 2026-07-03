@@ -1,6 +1,3 @@
-behavioralpatterns/chainofresponsibility/debug_log_processor.py
-behavioralpatterns/chainofresponsibility/error_log_processor.py
-behavioralpatterns/chainofresponsibility/fatal_log_processor.py
 behavioralpatterns/chainofresponsibility/info_log_processor.py
 behavioralpatterns/chainofresponsibility/log_processor.py
 behavioralpatterns/chainofresponsibility/logger_demo.py
