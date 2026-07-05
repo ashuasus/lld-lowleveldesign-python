@@ -1,6 +1,3 @@
-behavioralpatterns/chainofresponsibility/log_processor.py
-behavioralpatterns/chainofresponsibility/logger_demo.py
-behavioralpatterns/command/__init__.py
 behavioralpatterns/command/problem/__init__.py
 behavioralpatterns/command/problem/air_conditioner.py
 behavioralpatterns/command/problem/bulb.py

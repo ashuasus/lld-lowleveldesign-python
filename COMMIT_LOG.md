@@ -28,3 +28,6 @@
 | 2026-07-03 | `behavioralpatterns/chainofresponsibility/error_log_processor.py` |
 | 2026-07-03 | `behavioralpatterns/chainofresponsibility/fatal_log_processor.py` |
 | 2026-07-04 | `behavioralpatterns/chainofresponsibility/info_log_processor.py` |
+| 2026-07-05 | `behavioralpatterns/chainofresponsibility/log_processor.py` |
+| 2026-07-05 | `behavioralpatterns/chainofresponsibility/logger_demo.py` |
+| 2026-07-05 | `behavioralpatterns/command/__init__.py` |
