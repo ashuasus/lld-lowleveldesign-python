@@ -1,0 +1,98 @@
+@startuml UrlShortener
+skinparam classAttributeIconSize 0
+skinparam backgroundColor #FAFAFA
+title URL Shortening Service - Class Diagram
+
+class UrlShortenerService <<Singleton>> {
+  - _instance: UrlShortenerService
+  - _counter: int
+  - _repository: UrlRepository
+  - _strategy: CodeGenerationStrategy
+  - _observers: list[AnalyticsObserver]
+  + {static} get_instance(): UrlShortenerService
+  + shorten(original_url: str, expiry: datetime): str
+  + redirect(short_code: str): str
+  + get_analytics(short_code: str): int
+  + register_observer(observer: AnalyticsObserver): None
+}
+
+class ShortenedUrl {
+  - original_url: str
+  - short_code: str
+  - expiry: datetime
+  - click_count: int
+}
+
+class UrlRepository {
+  - _short_to_url: dict[str, ShortenedUrl]
+  - _url_to_short: dict[str, str]
+  + save(shortened_url: ShortenedUrl): None
+  + find_by_code(short_code: str): ShortenedUrl
+  + find_by_url(original_url: str): str
+}
+
+abstract class CodeGenerationStrategy {
+  + generate(url: str, id: int): str
+}
+
+class Base62Strategy {
+  - BASE62: str
+  + generate(url: str, id: int): str
+}
+
+class HashStrategy {
+  + generate(url: str, id: int): str
+}
+
+abstract class AnalyticsObserver {
+  + on_redirect(short_code: str): None
+}
+
+class ClickCountObserver {
+  + on_redirect(short_code: str): None
+}
+
+class LogObserver {
+  + on_redirect(short_code: str): None
+}
+
+class UrlShortenerFacade {
+  - service: UrlShortenerService
+  + shorten(url: str): str
+  + redirect(short_code: str): str
+}
+
+note right of UrlShortenerService
+  Singleton Pattern:
+  One counter, one store
+  across all calls
+end note
+
+note right of CodeGenerationStrategy
+  Strategy Pattern:
+  Swap Base62 vs Hash
+  without changing service
+end note
+
+note right of AnalyticsObserver
+  Observer Pattern:
+  Notified on every redirect
+  without polluting redirect logic
+end note
+
+note right of UrlRepository
+  Two dicts:
+  short_to_url → redirect O(1)
+  url_to_short → deduplication O(1)
+end note
+
+UrlShortenerFacade --> UrlShortenerService : delegates
+UrlShortenerService --> UrlRepository : uses
+UrlShortenerService --> CodeGenerationStrategy : uses
+UrlShortenerService --> AnalyticsObserver : notifies
+UrlRepository --> ShortenedUrl : stores
+CodeGenerationStrategy <|-- Base62Strategy
+CodeGenerationStrategy <|-- HashStrategy
+AnalyticsObserver <|-- ClickCountObserver
+AnalyticsObserver <|-- LogObserver
+@enduml

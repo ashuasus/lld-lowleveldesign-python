@@ -1,0 +1,123 @@
+@startuml InventoryManagement
+skinparam classAttributeIconSize 0
+skinparam backgroundColor #FAFAFA
+title Inventory Management System - Class Diagram
+
+class InventoryManager <<Singleton>> {
+  - _instance: InventoryManager
+  - _repository: ProductRepository
+  - _observers: list[StockObserver]
+  - _lock: Lock
+  + {static} get_instance(): InventoryManager
+  + add_product(product: Product): None
+  + remove_product(product_id: str): None
+  + get_product(product_id: str): Product
+  + update_quantity(product_id: str, delta: int): int
+  + search(query: str, category: Category): list[Product]
+  + register_observer(observer: StockObserver): None
+  - _notify_observers(product: Product): None
+}
+
+class Product {
+  - product_id: str
+  - name: str
+  - category: Category
+  - price: float
+  - quantity: int
+  - threshold: int
+  - _lock: Lock
+  + update_quantity(delta: int): int
+  + is_low_stock(): bool
+  + get_product_id(): str
+  + get_name(): str
+  + get_quantity(): int
+  + get_price(): float
+}
+
+class ProductRepository {
+  - _products: dict[str, Product]
+  + save(product: Product): None
+  + find_by_id(product_id: str): Product
+  + find_all(): list[Product]
+  + delete(product_id: str): None
+}
+
+class OrderService {
+  - inventory: InventoryManager
+  - pricing_strategy: PricingStrategy
+  + place_order(product_id: str, quantity: int): float
+  + restock(product_id: str, quantity: int): None
+}
+
+abstract class PricingStrategy {
+  + calculate_price(product: Product, quantity: int): float
+}
+
+class FlatPricing {
+  + calculate_price(product: Product, quantity: int): float
+}
+
+class DiscountPricing {
+  - discount_threshold: int
+  - discount_rate: float
+  + calculate_price(product: Product, quantity: int): float
+}
+
+abstract class StockObserver {
+  + update(product: Product): None
+}
+
+class EmailNotifier {
+  + update(product: Product): None
+}
+
+class SMSNotifier {
+  + update(product: Product): None
+}
+
+class ProductFactory {
+  + {static} create(product_id: str, name: str, category: Category, price: float, quantity: int): Product
+}
+
+enum Category {
+  ELECTRONICS
+  GROCERY
+  CLOTHING
+  FURNITURE
+}
+
+note right of InventoryManager
+  Singleton Pattern:
+  One source of truth for
+  all product inventory
+end note
+
+note right of StockObserver
+  Observer Pattern:
+  Notified when product
+  quantity falls below threshold
+end note
+
+note right of PricingStrategy
+  Strategy Pattern:
+  Swap pricing logic
+  without changing OrderService
+end note
+
+note right of Product
+  Per-product Lock:
+  Concurrent orders on
+  different products don't block
+end note
+
+InventoryManager --> ProductRepository : delegates storage
+InventoryManager --> StockObserver : notifies
+OrderService --> InventoryManager : uses
+OrderService --> PricingStrategy : uses
+PricingStrategy <|-- FlatPricing
+PricingStrategy <|-- DiscountPricing
+StockObserver <|-- EmailNotifier
+StockObserver <|-- SMSNotifier
+Product --> Category : has
+ProductFactory ..> Product : creates
+@enduml
