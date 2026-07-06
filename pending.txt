@@ -1,6 +1,3 @@
-behavioralpatterns/command/problem/__init__.py
-behavioralpatterns/command/problem/air_conditioner.py
-behavioralpatterns/command/problem/bulb.py
 behavioralpatterns/command/problem/client.py
 behavioralpatterns/command/solution/__init__.py
 behavioralpatterns/command/solution/air_conditioner.py

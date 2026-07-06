@@ -31,3 +31,6 @@
 | 2026-07-05 | `behavioralpatterns/chainofresponsibility/log_processor.py` |
 | 2026-07-05 | `behavioralpatterns/chainofresponsibility/logger_demo.py` |
 | 2026-07-05 | `behavioralpatterns/command/__init__.py` |
+| 2026-07-06 | `behavioralpatterns/command/problem/__init__.py` |
+| 2026-07-06 | `behavioralpatterns/command/problem/air_conditioner.py` |
+| 2026-07-06 | `behavioralpatterns/command/problem/bulb.py` |
