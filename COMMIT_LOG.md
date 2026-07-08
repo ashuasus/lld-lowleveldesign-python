@@ -37,3 +37,6 @@
 | 2026-07-07 | `behavioralpatterns/command/problem/client.py` |
 | 2026-07-07 | `behavioralpatterns/command/solution/__init__.py` |
 | 2026-07-07 | `behavioralpatterns/command/solution/air_conditioner.py` |
+| 2026-07-08 | `behavioralpatterns/command/solution/client.py` |
+| 2026-07-08 | `behavioralpatterns/command/solution/i_command.py` |
+| 2026-07-08 | `behavioralpatterns/command/solution/remote_controller.py` |
