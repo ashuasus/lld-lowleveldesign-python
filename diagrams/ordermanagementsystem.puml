@@ -1,0 +1,190 @@
+@startuml OrderManagementSystem
+skinparam classAttributeIconSize 0
+skinparam backgroundColor #FAFAFA
+title Order Management System - Class Diagram
+
+class ProductDeliverySystem {
+  - user_controller: UserController
+  - warehouse_controller: WarehouseController
+  - order_controller: OrderController
+  + get_user(user_id: int): User
+  + get_warehouse(strategy: WarehouseSelectionStrategy): Warehouse
+  + get_inventory(warehouse: Warehouse): Inventory
+  + add_product_to_cart(user: User, category: ProductCategory, count: int): None
+  + place_order(user: User, warehouse: Warehouse): Order
+  + checkout(order: Order): None
+}
+
+class UserController {
+  - user_list: list[User]
+  + add_user(user: User): None
+  + remove_user(user: User): None
+  + get_user(user_id: int): User
+}
+
+class WarehouseController {
+  - warehouse_list: list[Warehouse]
+  - warehouse_selection_strategy: WarehouseSelectionStrategy
+  + add_new_warehouse(warehouse: Warehouse): None
+  + remove_warehouse(warehouse: Warehouse): None
+  + select_warehouse(strategy: WarehouseSelectionStrategy): Warehouse
+}
+
+class OrderController {
+  - order_list: list[Order]
+  - user_id_vs_orders: dict[int, list[Order]]
+  + create_new_order(user: User, warehouse: Warehouse): Order
+  + remove_order(order: Order): None
+  + get_orders_by_user_id(user_id: int): list[Order]
+}
+
+class User {
+  - user_id: int
+  - user_name: str
+  - address: Address
+  - user_cart: Cart
+  - order_ids: list[int]
+  + get_user_cart(): Cart
+}
+
+class Address {
+  - pin_code: int
+  - city: str
+  - state: str
+}
+
+class Cart {
+  - product_category_id_vs_count: dict[int, int]
+  + add_item(product_category_id: int, count: int): None
+  + remove_item(product_category_id: int, count: int): None
+  + empty_cart(): None
+  + get_cart_items(): dict
+}
+
+class Warehouse {
+  - inventory: Inventory
+  - address: Address
+  + remove_item_from_inventory(category_count_map: dict): None
+  + add_item_to_inventory(category_count_map: dict): None
+}
+
+class Inventory {
+  - product_category_list: list[ProductCategory]
+  + add_category(category_id: int, name: str, price: float): None
+  + add_product(product: Product, category_id: int): None
+  + remove_items(category_count_map: dict): None
+}
+
+class ProductCategory {
+  - product_category_id: int
+  - category_name: str
+  - price: float
+  - products: list[Product]
+  + add_product(product: Product): None
+  + remove_product(count: int): None
+}
+
+class Product {
+  - product_id: int
+  - product_name: str
+}
+
+class Order {
+  - user: User
+  - warehouse: Warehouse
+  - delivery_address: Address
+  - product_category_and_count_map: dict
+  - invoice: Invoice
+  - payment: Payment
+  - order_status: OrderStatus
+  + checkout(): None
+  + make_payment(payment_mode: PaymentMode): bool
+}
+
+class Invoice {
+  - total_item_price: int
+  - total_tax: int
+  - total_final_price: int
+  + generate_invoice(order: Order): None
+}
+
+class Payment {
+  - payment_mode: PaymentMode
+  + make_payment(): bool
+}
+
+abstract class PaymentMode {
+  + make_payment(): bool
+}
+
+class CardPaymentMode {
+  + make_payment(): bool
+}
+
+class UPIPaymentMode {
+  + make_payment(): bool
+}
+
+abstract class WarehouseSelectionStrategy {
+  + select_warehouse(warehouse_list: list): Warehouse
+}
+
+class NearestWarehouseSelectionStrategy {
+  + select_warehouse(warehouse_list: list): Warehouse
+}
+
+enum OrderStatus {
+  DELIVERED
+  CANCELLED
+  RETURNED
+  UNDELIVERED
+}
+
+note right of ProductDeliverySystem
+  Facade Pattern:
+  Single entry point hiding
+  UserController, WarehouseController
+  and OrderController
+end note
+
+note right of WarehouseSelectionStrategy
+  Strategy Pattern:
+  Swap warehouse selection algo
+  (nearest, least loaded, etc.)
+end note
+
+note right of PaymentMode
+  Strategy Pattern:
+  Swap payment method
+  without changing Order
+end note
+
+note right of ProductCategory
+  Category = SKU (price + type)
+  products list = physical units
+  stock count = len(products)
+end note
+
+ProductDeliverySystem --> UserController : uses
+ProductDeliverySystem --> WarehouseController : uses
+ProductDeliverySystem --> OrderController : uses
+UserController --> User : manages
+User --> Cart : has
+User --> Address : has
+WarehouseController --> Warehouse : manages
+WarehouseController --> WarehouseSelectionStrategy : uses
+Warehouse --> Inventory : has
+Warehouse --> Address : has
+Inventory --> ProductCategory : has
+ProductCategory --> Product : contains
+OrderController --> Order : manages
+Order --> User : placed by
+Order --> Warehouse : fulfilled by
+Order --> Invoice : has
+Order --> Payment : has
+Order --> OrderStatus : has
+Payment --> PaymentMode : uses
+PaymentMode <|-- CardPaymentMode
+PaymentMode <|-- UPIPaymentMode
+WarehouseSelectionStrategy <|-- NearestWarehouseSelectionStrategy
+@enduml
