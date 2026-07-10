@@ -40,3 +40,6 @@
 | 2026-07-08 | `behavioralpatterns/command/solution/client.py` |
 | 2026-07-08 | `behavioralpatterns/command/solution/i_command.py` |
 | 2026-07-08 | `behavioralpatterns/command/solution/remote_controller.py` |
+| 2026-07-10 | `behavioralpatterns/command/solution/set_temperature_command.py` |
+| 2026-07-10 | `behavioralpatterns/command/solution/turn_off_command.py` |
+| 2026-07-10 | `behavioralpatterns/command/solution/turn_on_command.py` |
