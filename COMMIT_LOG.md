@@ -43,3 +43,6 @@
 | 2026-07-10 | `behavioralpatterns/command/solution/set_temperature_command.py` |
 | 2026-07-10 | `behavioralpatterns/command/solution/turn_off_command.py` |
 | 2026-07-10 | `behavioralpatterns/command/solution/turn_on_command.py` |
+| 2026-07-11 | `behavioralpatterns/interpreter/__init__.py` |
+| 2026-07-11 | `behavioralpatterns/interpreter/abstract_expression.py` |
+| 2026-07-11 | `behavioralpatterns/interpreter/add_non_terminal_expression.py` |

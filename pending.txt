@@ -1,6 +1,3 @@
-behavioralpatterns/interpreter/__init__.py
-behavioralpatterns/interpreter/abstract_expression.py
-behavioralpatterns/interpreter/add_non_terminal_expression.py
 behavioralpatterns/interpreter/binary_non_terminal_expression.py
 behavioralpatterns/interpreter/client.py
 behavioralpatterns/interpreter/context.py
