@@ -1,6 +1,3 @@
-behavioralpatterns/interpreter/binary_non_terminal_expression.py
-behavioralpatterns/interpreter/client.py
-behavioralpatterns/interpreter/context.py
 behavioralpatterns/interpreter/multiply_non_terminal_expression.py
 behavioralpatterns/interpreter/number_terminal_expression.py
 behavioralpatterns/iterator/__init__.py

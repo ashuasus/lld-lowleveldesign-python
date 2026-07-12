@@ -46,3 +46,6 @@
 | 2026-07-11 | `behavioralpatterns/interpreter/__init__.py` |
 | 2026-07-11 | `behavioralpatterns/interpreter/abstract_expression.py` |
 | 2026-07-11 | `behavioralpatterns/interpreter/add_non_terminal_expression.py` |
+| 2026-07-12 | `behavioralpatterns/interpreter/binary_non_terminal_expression.py` |
+| 2026-07-12 | `behavioralpatterns/interpreter/client.py` |
+| 2026-07-12 | `behavioralpatterns/interpreter/context.py` |
