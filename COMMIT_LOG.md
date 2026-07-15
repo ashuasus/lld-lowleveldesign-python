@@ -52,3 +52,5 @@
 | 2026-07-13 | `behavioralpatterns/interpreter/multiply_non_terminal_expression.py` |
 | 2026-07-13 | `behavioralpatterns/interpreter/number_terminal_expression.py` |
 | 2026-07-14 | `behavioralpatterns/iterator/__init__.py` |
+| 2026-07-15 | `behavioralpatterns/iterator/collections/__init__.py` |
+| 2026-07-15 | `behavioralpatterns/iterator/collections/linked_hash_set_example.py` |
