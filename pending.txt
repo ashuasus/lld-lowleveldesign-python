@@ -1,4 +1,3 @@
-behavioralpatterns/iterator/library/book.py
 behavioralpatterns/iterator/library/book_collection.py
 behavioralpatterns/iterator/library/iterator.py
 behavioralpatterns/iterator/library/library.py
