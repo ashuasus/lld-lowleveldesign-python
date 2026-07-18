@@ -1,6 +1,3 @@
-behavioralpatterns/iterator/library/book_collection.py
-behavioralpatterns/iterator/library/iterator.py
-behavioralpatterns/iterator/library/library.py
 behavioralpatterns/iterator/library/library_iterator.py
 behavioralpatterns/iterator/library/library_iterator_demo.py
 behavioralpatterns/iterator/library/reverse_library_iterator.py

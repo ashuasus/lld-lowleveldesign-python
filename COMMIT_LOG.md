@@ -56,3 +56,6 @@
 | 2026-07-15 | `behavioralpatterns/iterator/collections/linked_hash_set_example.py` |
 | 2026-07-16 | `behavioralpatterns/iterator/library/__init__.py` |
 | 2026-07-17 | `behavioralpatterns/iterator/library/book.py` |
+| 2026-07-18 | `behavioralpatterns/iterator/library/book_collection.py` |
+| 2026-07-18 | `behavioralpatterns/iterator/library/iterator.py` |
+| 2026-07-18 | `behavioralpatterns/iterator/library/library.py` |
