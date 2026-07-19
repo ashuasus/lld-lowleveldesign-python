@@ -59,3 +59,5 @@
 | 2026-07-18 | `behavioralpatterns/iterator/library/book_collection.py` |
 | 2026-07-18 | `behavioralpatterns/iterator/library/iterator.py` |
 | 2026-07-18 | `behavioralpatterns/iterator/library/library.py` |
+| 2026-07-19 | `behavioralpatterns/iterator/library/library_iterator.py` |
+| 2026-07-19 | `behavioralpatterns/iterator/library/library_iterator_demo.py` |
