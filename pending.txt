@@ -1,5 +1,3 @@
-behavioralpatterns/iterator/library/reverse_library_iterator.py
-behavioralpatterns/iterator/problem/__init__.py
 behavioralpatterns/iterator/problem/book.py
 behavioralpatterns/iterator/problem/client.py
 behavioralpatterns/mediator/__init__.py
