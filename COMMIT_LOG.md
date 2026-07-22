@@ -64,3 +64,4 @@
 | 2026-07-20 | `behavioralpatterns/iterator/library/reverse_library_iterator.py` |
 | 2026-07-20 | `behavioralpatterns/iterator/problem/__init__.py` |
 | 2026-07-21 | `behavioralpatterns/iterator/problem/book.py` |
+| 2026-07-22 | `behavioralpatterns/iterator/problem/client.py` |
