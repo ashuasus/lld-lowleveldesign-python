@@ -1,4 +1,3 @@
-behavioralpatterns/mediator/__init__.py
 behavioralpatterns/mediator/auction_demo.py
 behavioralpatterns/mediator/auction_house.py
 behavioralpatterns/mediator/auction_mediator.py
