@@ -67,3 +67,6 @@
 | 2026-07-22 | `behavioralpatterns/iterator/problem/client.py` |
 | 2026-07-23 | `behavioralpatterns/mediator/__init__.py` |
 | 2026-07-24 | `behavioralpatterns/mediator/auction_demo.py` |
+| 2026-07-25 | `behavioralpatterns/mediator/auction_house.py` |
+| 2026-07-25 | `behavioralpatterns/mediator/auction_mediator.py` |
+| 2026-07-25 | `behavioralpatterns/mediator/bidder.py` |
