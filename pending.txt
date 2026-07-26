@@ -1,6 +1,3 @@
-behavioralpatterns/mediator/i_colleague.py
-behavioralpatterns/memento/__init__.py
-behavioralpatterns/memento/application_configuration.py
 behavioralpatterns/memento/configuration_manager.py
 behavioralpatterns/memento/configuration_memento.py
 behavioralpatterns/memento/memento_demo.py
