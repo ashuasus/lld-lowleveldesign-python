@@ -1,4 +1,3 @@
-behavioralpatterns/memento/configuration_memento.py
 behavioralpatterns/memento/memento_demo.py
 behavioralpatterns/observer/__init__.py
 behavioralpatterns/observer/notifymefeature/__init__.py
