@@ -75,3 +75,5 @@
 | 2026-07-26 | `behavioralpatterns/memento/application_configuration.py` |
 | 2026-07-27 | `behavioralpatterns/memento/configuration_manager.py` |
 | 2026-07-28 | `behavioralpatterns/memento/configuration_memento.py` |
+| 2026-07-29 | `behavioralpatterns/memento/memento_demo.py` |
+| 2026-07-29 | `behavioralpatterns/observer/__init__.py` |

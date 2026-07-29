@@ -1,5 +1,3 @@
-behavioralpatterns/memento/memento_demo.py
-behavioralpatterns/observer/__init__.py
 behavioralpatterns/observer/notifymefeature/__init__.py
 behavioralpatterns/observer/notifymefeature/e_commerce_stock_notification_app.py
 behavioralpatterns/observer/notifymefeature/observable/__init__.py
