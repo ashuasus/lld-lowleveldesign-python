@@ -80,3 +80,5 @@
 | 2026-07-30 | `behavioralpatterns/observer/notifymefeature/__init__.py` |
 | 2026-07-30 | `behavioralpatterns/observer/notifymefeature/e_commerce_stock_notification_app.py` |
 | 2026-07-30 | `behavioralpatterns/observer/notifymefeature/observable/__init__.py` |
+| 2026-07-31 | `behavioralpatterns/observer/notifymefeature/observable/iphone_product_observable.py` |
+| 2026-07-31 | `behavioralpatterns/observer/notifymefeature/observable/stock_availability_observable.py` |
