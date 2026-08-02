@@ -1,6 +1,3 @@
-behavioralpatterns/observer/notifymefeature/observer/email_notification_observer.py
-behavioralpatterns/observer/notifymefeature/observer/push_notification_observer.py
-behavioralpatterns/observer/notifymefeature/observer/stock_notification_observer.py
 behavioralpatterns/observer/weatherstation/__init__.py
 behavioralpatterns/observer/weatherstation/observable/__init__.py
 behavioralpatterns/observer/weatherstation/observable/weather_observable.py
