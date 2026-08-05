@@ -89,3 +89,6 @@
 | 2026-08-03 | `behavioralpatterns/observer/weatherstation/__init__.py` |
 | 2026-08-03 | `behavioralpatterns/observer/weatherstation/observable/__init__.py` |
 | 2026-08-04 | `behavioralpatterns/observer/weatherstation/observable/weather_observable.py` |
+| 2026-08-05 | `behavioralpatterns/observer/weatherstation/observable/weather_station.py` |
+| 2026-08-05 | `behavioralpatterns/observer/weatherstation/observer/__init__.py` |
+| 2026-08-05 | `behavioralpatterns/observer/weatherstation/observer/current_conditions_display.py` |
