@@ -97,3 +97,6 @@
 | 2026-08-08 | `behavioralpatterns/observer/weatherstation/weather_station_app.py` |
 | 2026-08-08 | `behavioralpatterns/state/__init__.py` |
 | 2026-08-08 | `behavioralpatterns/state/context/__init__.py` |
+| 2026-08-09 | `behavioralpatterns/state/context/inventory.py` |
+| 2026-08-09 | `behavioralpatterns/state/context/item.py` |
+| 2026-08-09 | `behavioralpatterns/state/context/item_shelf.py` |

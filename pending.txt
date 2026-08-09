@@ -1,6 +1,3 @@
-behavioralpatterns/state/context/inventory.py
-behavioralpatterns/state/context/item.py
-behavioralpatterns/state/context/item_shelf.py
 behavioralpatterns/state/context/item_type.py
 behavioralpatterns/state/context/vending_machine.py
 behavioralpatterns/state/vending_machine_app_demo.py
