@@ -100,3 +100,5 @@
 | 2026-08-09 | `behavioralpatterns/state/context/inventory.py` |
 | 2026-08-09 | `behavioralpatterns/state/context/item.py` |
 | 2026-08-09 | `behavioralpatterns/state/context/item_shelf.py` |
+| 2026-08-10 | `behavioralpatterns/state/context/item_type.py` |
+| 2026-08-10 | `behavioralpatterns/state/context/vending_machine.py` |

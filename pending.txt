@@ -1,5 +1,3 @@
-behavioralpatterns/state/context/item_type.py
-behavioralpatterns/state/context/vending_machine.py
 behavioralpatterns/state/vending_machine_app_demo.py
 behavioralpatterns/state/vendingmachinestates/__init__.py
 behavioralpatterns/state/vendingmachinestates/coin.py
