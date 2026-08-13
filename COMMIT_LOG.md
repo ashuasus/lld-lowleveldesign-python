@@ -105,3 +105,5 @@
 | 2026-08-11 | `behavioralpatterns/state/vending_machine_app_demo.py` |
 | 2026-08-12 | `behavioralpatterns/state/vendingmachinestates/__init__.py` |
 | 2026-08-12 | `behavioralpatterns/state/vendingmachinestates/coin.py` |
+| 2026-08-13 | `behavioralpatterns/state/vendingmachinestates/impl/__init__.py` |
+| 2026-08-13 | `behavioralpatterns/state/vendingmachinestates/impl/dispense_state.py` |
