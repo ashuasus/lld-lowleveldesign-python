@@ -107,3 +107,6 @@
 | 2026-08-12 | `behavioralpatterns/state/vendingmachinestates/coin.py` |
 | 2026-08-13 | `behavioralpatterns/state/vendingmachinestates/impl/__init__.py` |
 | 2026-08-13 | `behavioralpatterns/state/vendingmachinestates/impl/dispense_state.py` |
+| 2026-08-14 | `behavioralpatterns/state/vendingmachinestates/impl/has_money_state.py` |
+| 2026-08-14 | `behavioralpatterns/state/vendingmachinestates/impl/idle_state.py` |
+| 2026-08-14 | `behavioralpatterns/state/vendingmachinestates/impl/selection_state.py` |
