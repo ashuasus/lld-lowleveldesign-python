@@ -1,6 +1,3 @@
-behavioralpatterns/strategy/paymentmethods/problem/payment_processor.py
-behavioralpatterns/strategy/paymentmethods/solution/__init__.py
-behavioralpatterns/strategy/paymentmethods/solution/demo.py
 behavioralpatterns/strategy/paymentmethods/solution/shopping_cart.py
 behavioralpatterns/strategy/paymentmethods/solution/strategy/__init__.py
 behavioralpatterns/strategy/paymentmethods/solution/strategy/credit_card_payment.py
