@@ -119,3 +119,6 @@
 | 2026-08-18 | `behavioralpatterns/strategy/paymentmethods/solution/__init__.py` |
 | 2026-08-18 | `behavioralpatterns/strategy/paymentmethods/solution/demo.py` |
 | 2026-08-19 | `behavioralpatterns/strategy/paymentmethods/solution/shopping_cart.py` |
+| 2026-08-20 | `behavioralpatterns/strategy/paymentmethods/solution/strategy/__init__.py` |
+| 2026-08-20 | `behavioralpatterns/strategy/paymentmethods/solution/strategy/credit_card_payment.py` |
+| 2026-08-20 | `behavioralpatterns/strategy/paymentmethods/solution/strategy/pay_pal_payment.py` |

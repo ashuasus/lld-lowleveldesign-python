@@ -1,6 +1,3 @@
-behavioralpatterns/strategy/paymentmethods/solution/strategy/__init__.py
-behavioralpatterns/strategy/paymentmethods/solution/strategy/credit_card_payment.py
-behavioralpatterns/strategy/paymentmethods/solution/strategy/pay_pal_payment.py
 behavioralpatterns/strategy/paymentmethods/solution/strategy/payment_strategy.py
 behavioralpatterns/strategy/paymentmethods/solution/strategy/upi_payment.py
 behavioralpatterns/strategy/vehicledrivemodes/__init__.py
