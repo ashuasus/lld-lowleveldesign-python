@@ -125,3 +125,5 @@
 | 2026-08-21 | `behavioralpatterns/strategy/paymentmethods/solution/strategy/payment_strategy.py` |
 | 2026-08-21 | `behavioralpatterns/strategy/paymentmethods/solution/strategy/upi_payment.py` |
 | 2026-08-21 | `behavioralpatterns/strategy/vehicledrivemodes/__init__.py` |
+| 2026-08-22 | `behavioralpatterns/strategy/vehicledrivemodes/problem/__init__.py` |
+| 2026-08-22 | `behavioralpatterns/strategy/vehicledrivemodes/problem/demo.py` |
