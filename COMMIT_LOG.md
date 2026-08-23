@@ -127,3 +127,6 @@
 | 2026-08-21 | `behavioralpatterns/strategy/vehicledrivemodes/__init__.py` |
 | 2026-08-22 | `behavioralpatterns/strategy/vehicledrivemodes/problem/__init__.py` |
 | 2026-08-22 | `behavioralpatterns/strategy/vehicledrivemodes/problem/demo.py` |
+| 2026-08-23 | `behavioralpatterns/strategy/vehicledrivemodes/problem/off_road_vehicle.py` |
+| 2026-08-23 | `behavioralpatterns/strategy/vehicledrivemodes/problem/passenger_vehicle.py` |
+| 2026-08-23 | `behavioralpatterns/strategy/vehicledrivemodes/problem/sports_vehicle.py` |
