@@ -132,3 +132,6 @@
 | 2026-08-23 | `behavioralpatterns/strategy/vehicledrivemodes/problem/sports_vehicle.py` |
 | 2026-08-24 | `behavioralpatterns/strategy/vehicledrivemodes/problem/vehicle.py` |
 | 2026-08-24 | `behavioralpatterns/strategy/vehicledrivemodes/solution/__init__.py` |
+| 2026-08-25 | `behavioralpatterns/strategy/vehicledrivemodes/solution/context/__init__.py` |
+| 2026-08-25 | `behavioralpatterns/strategy/vehicledrivemodes/solution/context/goods_vehicle.py` |
+| 2026-08-25 | `behavioralpatterns/strategy/vehicledrivemodes/solution/context/hybrid_vehicle.py` |
