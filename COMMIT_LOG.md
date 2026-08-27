@@ -137,3 +137,6 @@
 | 2026-08-25 | `behavioralpatterns/strategy/vehicledrivemodes/solution/context/hybrid_vehicle.py` |
 | 2026-08-26 | `behavioralpatterns/strategy/vehicledrivemodes/solution/context/off_road_vehicle.py` |
 | 2026-08-26 | `behavioralpatterns/strategy/vehicledrivemodes/solution/context/sports_vehicle.py` |
+| 2026-08-27 | `behavioralpatterns/strategy/vehicledrivemodes/solution/context/vehicle.py` |
+| 2026-08-27 | `behavioralpatterns/strategy/vehicledrivemodes/solution/demo.py` |
+| 2026-08-27 | `behavioralpatterns/strategy/vehicledrivemodes/solution/strategies/__init__.py` |
