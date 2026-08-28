@@ -140,3 +140,5 @@
 | 2026-08-27 | `behavioralpatterns/strategy/vehicledrivemodes/solution/context/vehicle.py` |
 | 2026-08-27 | `behavioralpatterns/strategy/vehicledrivemodes/solution/demo.py` |
 | 2026-08-27 | `behavioralpatterns/strategy/vehicledrivemodes/solution/strategies/__init__.py` |
+| 2026-08-28 | `behavioralpatterns/strategy/vehicledrivemodes/solution/strategies/drive_strategy.py` |
+| 2026-08-28 | `behavioralpatterns/strategy/vehicledrivemodes/solution/strategies/ev_drive.py` |

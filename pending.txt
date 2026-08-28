@@ -1,5 +1,3 @@
-behavioralpatterns/strategy/vehicledrivemodes/solution/strategies/drive_strategy.py
-behavioralpatterns/strategy/vehicledrivemodes/solution/strategies/ev_drive.py
 behavioralpatterns/strategy/vehicledrivemodes/solution/strategies/normal_drive.py
 behavioralpatterns/strategy/vehicledrivemodes/solution/strategies/sports_drive.py
 behavioralpatterns/templatemethod/__init__.py
