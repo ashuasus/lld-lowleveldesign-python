@@ -1,5 +1,3 @@
-behavioralpatterns/templatemethod/__init__.py
-behavioralpatterns/templatemethod/bank_transfer.py
 behavioralpatterns/templatemethod/merchant_payment.py
 behavioralpatterns/templatemethod/payment_flow.py
 behavioralpatterns/templatemethod/template_demo.py

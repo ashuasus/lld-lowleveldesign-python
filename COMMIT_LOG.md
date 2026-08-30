@@ -144,3 +144,5 @@
 | 2026-08-28 | `behavioralpatterns/strategy/vehicledrivemodes/solution/strategies/ev_drive.py` |
 | 2026-08-29 | `behavioralpatterns/strategy/vehicledrivemodes/solution/strategies/normal_drive.py` |
 | 2026-08-29 | `behavioralpatterns/strategy/vehicledrivemodes/solution/strategies/sports_drive.py` |
+| 2026-08-30 | `behavioralpatterns/templatemethod/__init__.py` |
+| 2026-08-30 | `behavioralpatterns/templatemethod/bank_transfer.py` |
