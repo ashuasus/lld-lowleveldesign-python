@@ -146,3 +146,4 @@
 | 2026-08-29 | `behavioralpatterns/strategy/vehicledrivemodes/solution/strategies/sports_drive.py` |
 | 2026-08-30 | `behavioralpatterns/templatemethod/__init__.py` |
 | 2026-08-30 | `behavioralpatterns/templatemethod/bank_transfer.py` |
+| 2026-08-31 | `behavioralpatterns/templatemethod/merchant_payment.py` |
