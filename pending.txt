@@ -1,4 +1,3 @@
-behavioralpatterns/templatemethod/payment_flow.py
 behavioralpatterns/templatemethod/template_demo.py
 behavioralpatterns/visitor/__init__.py
 behavioralpatterns/visitor/problem/__init__.py

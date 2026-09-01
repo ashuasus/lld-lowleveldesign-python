@@ -147,3 +147,4 @@
 | 2026-08-30 | `behavioralpatterns/templatemethod/__init__.py` |
 | 2026-08-30 | `behavioralpatterns/templatemethod/bank_transfer.py` |
 | 2026-08-31 | `behavioralpatterns/templatemethod/merchant_payment.py` |
+| 2026-09-01 | `behavioralpatterns/templatemethod/payment_flow.py` |
