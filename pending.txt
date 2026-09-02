@@ -1,5 +1,3 @@
-behavioralpatterns/templatemethod/template_demo.py
-behavioralpatterns/visitor/__init__.py
 behavioralpatterns/visitor/problem/__init__.py
 behavioralpatterns/visitor/problem/demo.py
 behavioralpatterns/visitor/problem/suite_hotel_room.py
