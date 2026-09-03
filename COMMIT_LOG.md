@@ -150,3 +150,5 @@
 | 2026-09-01 | `behavioralpatterns/templatemethod/payment_flow.py` |
 | 2026-09-02 | `behavioralpatterns/templatemethod/template_demo.py` |
 | 2026-09-02 | `behavioralpatterns/visitor/__init__.py` |
+| 2026-09-03 | `behavioralpatterns/visitor/problem/__init__.py` |
+| 2026-09-03 | `behavioralpatterns/visitor/problem/demo.py` |
