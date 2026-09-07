@@ -1,5 +1,3 @@
-behavioralpatterns/visitor/solution/elements/deluxe_room.py
-behavioralpatterns/visitor/solution/elements/i_room.py
 behavioralpatterns/visitor/solution/elements/standard_room.py
 behavioralpatterns/visitor/solution/elements/suite_room.py
 behavioralpatterns/visitor/solution/hotel_visitor_demo.py
