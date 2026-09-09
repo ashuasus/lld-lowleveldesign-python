@@ -1,6 +1,3 @@
-behavioralpatterns/visitor/solution/visitors/__init__.py
-behavioralpatterns/visitor/solution/visitors/housekeeping_visitor.py
-behavioralpatterns/visitor/solution/visitors/i_room_visitor.py
 behavioralpatterns/visitor/solution/visitors/pricing_visitor.py
 behavioralpatterns/visitor/solution/visitors/room_service_visitor.py
 creationalpatterns/__init__.py

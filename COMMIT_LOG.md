@@ -160,3 +160,6 @@
 | 2026-09-08 | `behavioralpatterns/visitor/solution/elements/standard_room.py` |
 | 2026-09-08 | `behavioralpatterns/visitor/solution/elements/suite_room.py` |
 | 2026-09-08 | `behavioralpatterns/visitor/solution/hotel_visitor_demo.py` |
+| 2026-09-09 | `behavioralpatterns/visitor/solution/visitors/__init__.py` |
+| 2026-09-09 | `behavioralpatterns/visitor/solution/visitors/housekeeping_visitor.py` |
+| 2026-09-09 | `behavioralpatterns/visitor/solution/visitors/i_room_visitor.py` |
