@@ -1,4 +1,3 @@
-behavioralpatterns/visitor/solution/visitors/pricing_visitor.py
 behavioralpatterns/visitor/solution/visitors/room_service_visitor.py
 creationalpatterns/__init__.py
 creationalpatterns/abstractfactory/__init__.py
