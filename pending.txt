@@ -1,6 +1,3 @@
-behavioralpatterns/visitor/solution/visitors/room_service_visitor.py
-creationalpatterns/__init__.py
-creationalpatterns/abstractfactory/__init__.py
 creationalpatterns/abstractfactory/abstract_factory_demo.py
 creationalpatterns/abstractfactory/car_exterior.py
 creationalpatterns/abstractfactory/car_factory.py
