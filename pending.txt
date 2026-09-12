@@ -1,4 +1,3 @@
-creationalpatterns/abstractfactory/abstract_factory_demo.py
 creationalpatterns/abstractfactory/car_exterior.py
 creationalpatterns/abstractfactory/car_factory.py
 creationalpatterns/abstractfactory/car_factory_provider.py
