@@ -168,3 +168,5 @@
 | 2026-09-11 | `creationalpatterns/__init__.py` |
 | 2026-09-11 | `creationalpatterns/abstractfactory/__init__.py` |
 | 2026-09-12 | `creationalpatterns/abstractfactory/abstract_factory_demo.py` |
+| 2026-09-13 | `creationalpatterns/abstractfactory/car_exterior.py` |
+| 2026-09-13 | `creationalpatterns/abstractfactory/car_factory.py` |
