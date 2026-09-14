@@ -170,3 +170,4 @@
 | 2026-09-12 | `creationalpatterns/abstractfactory/abstract_factory_demo.py` |
 | 2026-09-13 | `creationalpatterns/abstractfactory/car_exterior.py` |
 | 2026-09-13 | `creationalpatterns/abstractfactory/car_factory.py` |
+| 2026-09-14 | `creationalpatterns/abstractfactory/car_factory_provider.py` |
