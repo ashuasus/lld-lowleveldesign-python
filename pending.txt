@@ -1,6 +1,3 @@
-creationalpatterns/abstractfactory/economy_car_interior.py
-creationalpatterns/abstractfactory/luxury_car_exterior.py
-creationalpatterns/abstractfactory/luxury_car_factory.py
 creationalpatterns/abstractfactory/luxury_car_interior.py
 creationalpatterns/builder/__init__.py
 creationalpatterns/builder/problem/__init__.py

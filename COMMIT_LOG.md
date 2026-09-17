@@ -174,3 +174,6 @@
 | 2026-09-15 | `creationalpatterns/abstractfactory/car_interior.py` |
 | 2026-09-15 | `creationalpatterns/abstractfactory/economy_car_exterior.py` |
 | 2026-09-16 | `creationalpatterns/abstractfactory/economy_car_factory.py` |
+| 2026-09-17 | `creationalpatterns/abstractfactory/economy_car_interior.py` |
+| 2026-09-17 | `creationalpatterns/abstractfactory/luxury_car_exterior.py` |
+| 2026-09-17 | `creationalpatterns/abstractfactory/luxury_car_factory.py` |
