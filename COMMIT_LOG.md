@@ -179,3 +179,6 @@
 | 2026-09-17 | `creationalpatterns/abstractfactory/luxury_car_factory.py` |
 | 2026-09-18 | `creationalpatterns/abstractfactory/luxury_car_interior.py` |
 | 2026-09-18 | `creationalpatterns/builder/__init__.py` |
+| 2026-09-19 | `creationalpatterns/builder/problem/__init__.py` |
+| 2026-09-19 | `creationalpatterns/builder/problem/student.py` |
+| 2026-09-19 | `creationalpatterns/builder/solution/__init__.py` |
