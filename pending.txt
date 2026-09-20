@@ -1,6 +1,3 @@
-creationalpatterns/builder/solution/client.py
-creationalpatterns/builder/solution/engineering_student_builder.py
-creationalpatterns/builder/solution/mba_student_builder.py
 creationalpatterns/builder/solution/student.py
 creationalpatterns/builder/solution/student_builder.py
 creationalpatterns/builder/solution/student_registration_director.py

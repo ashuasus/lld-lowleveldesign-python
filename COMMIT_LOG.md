@@ -182,3 +182,6 @@
 | 2026-09-19 | `creationalpatterns/builder/problem/__init__.py` |
 | 2026-09-19 | `creationalpatterns/builder/problem/student.py` |
 | 2026-09-19 | `creationalpatterns/builder/solution/__init__.py` |
+| 2026-09-20 | `creationalpatterns/builder/solution/client.py` |
+| 2026-09-20 | `creationalpatterns/builder/solution/engineering_student_builder.py` |
+| 2026-09-20 | `creationalpatterns/builder/solution/mba_student_builder.py` |
