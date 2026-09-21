@@ -185,3 +185,5 @@
 | 2026-09-20 | `creationalpatterns/builder/solution/client.py` |
 | 2026-09-20 | `creationalpatterns/builder/solution/engineering_student_builder.py` |
 | 2026-09-20 | `creationalpatterns/builder/solution/mba_student_builder.py` |
+| 2026-09-21 | `creationalpatterns/builder/solution/student.py` |
+| 2026-09-21 | `creationalpatterns/builder/solution/student_builder.py` |
