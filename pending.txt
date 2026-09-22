@@ -1,4 +1,3 @@
-creationalpatterns/builder/solution/student_registration_director.py
 creationalpatterns/factory/__init__.py
 creationalpatterns/factory/circle.py
 creationalpatterns/factory/factorymethod/__init__.py
