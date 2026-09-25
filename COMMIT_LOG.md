@@ -190,3 +190,6 @@
 | 2026-09-22 | `creationalpatterns/builder/solution/student_registration_director.py` |
 | 2026-09-23 | `creationalpatterns/factory/__init__.py` |
 | 2026-09-24 | `creationalpatterns/factory/circle.py` |
+| 2026-09-25 | `creationalpatterns/factory/factorymethod/__init__.py` |
+| 2026-09-25 | `creationalpatterns/factory/factorymethod/circle_creator.py` |
+| 2026-09-25 | `creationalpatterns/factory/factorymethod/factory_method_demo.py` |
