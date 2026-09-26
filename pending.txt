@@ -1,5 +1,3 @@
-creationalpatterns/factory/factorymethod/rectangle_creator.py
-creationalpatterns/factory/factorymethod/shape_factory.py
 creationalpatterns/factory/factorymethod/square_creator.py
 creationalpatterns/factory/rectangle.py
 creationalpatterns/factory/shape.py

@@ -193,3 +193,5 @@
 | 2026-09-25 | `creationalpatterns/factory/factorymethod/__init__.py` |
 | 2026-09-25 | `creationalpatterns/factory/factorymethod/circle_creator.py` |
 | 2026-09-25 | `creationalpatterns/factory/factorymethod/factory_method_demo.py` |
+| 2026-09-26 | `creationalpatterns/factory/factorymethod/rectangle_creator.py` |
+| 2026-09-26 | `creationalpatterns/factory/factorymethod/shape_factory.py` |
