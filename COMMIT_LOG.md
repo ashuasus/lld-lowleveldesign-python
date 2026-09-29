@@ -198,3 +198,6 @@
 | 2026-09-27 | `creationalpatterns/factory/factorymethod/square_creator.py` |
 | 2026-09-27 | `creationalpatterns/factory/rectangle.py` |
 | 2026-09-28 | `creationalpatterns/factory/shape.py` |
+| 2026-09-29 | `creationalpatterns/factory/shape_type.py` |
+| 2026-09-29 | `creationalpatterns/factory/simplefactory/__init__.py` |
+| 2026-09-29 | `creationalpatterns/factory/simplefactory/shape_factory.py` |
