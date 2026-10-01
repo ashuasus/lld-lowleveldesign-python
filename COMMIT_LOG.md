@@ -202,3 +202,6 @@
 | 2026-09-29 | `creationalpatterns/factory/simplefactory/__init__.py` |
 | 2026-09-29 | `creationalpatterns/factory/simplefactory/shape_factory.py` |
 | 2026-09-30 | `creationalpatterns/factory/simplefactory/simple_factory_demo.py` |
+| 2026-10-01 | `creationalpatterns/factory/square.py` |
+| 2026-10-01 | `creationalpatterns/objectpool/__init__.py` |
+| 2026-10-01 | `creationalpatterns/objectpool/problem/__init__.py` |
