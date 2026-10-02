@@ -205,3 +205,6 @@
 | 2026-10-01 | `creationalpatterns/factory/square.py` |
 | 2026-10-01 | `creationalpatterns/objectpool/__init__.py` |
 | 2026-10-01 | `creationalpatterns/objectpool/problem/__init__.py` |
+| 2026-10-02 | `creationalpatterns/objectpool/problem/client.py` |
+| 2026-10-02 | `creationalpatterns/objectpool/problem/db_connection_pool_manager.py` |
+| 2026-10-02 | `creationalpatterns/objectpool/resource/__init__.py` |
