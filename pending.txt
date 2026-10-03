@@ -1,4 +1,3 @@
-creationalpatterns/objectpool/resource/db_connection.py
 creationalpatterns/objectpool/solution/__init__.py
 creationalpatterns/objectpool/solution/client.py
 creationalpatterns/objectpool/solution/db_connection_pool_manager.py
