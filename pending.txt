@@ -1,6 +1,3 @@
-creationalpatterns/objectpool/solution/__init__.py
-creationalpatterns/objectpool/solution/client.py
-creationalpatterns/objectpool/solution/db_connection_pool_manager.py
 creationalpatterns/prototype/__init__.py
 creationalpatterns/prototype/problem/__init__.py
 creationalpatterns/prototype/problem/demo_problem.py
