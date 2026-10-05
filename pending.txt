@@ -1,5 +1,3 @@
-creationalpatterns/prototype/__init__.py
-creationalpatterns/prototype/problem/__init__.py
 creationalpatterns/prototype/problem/demo_problem.py
 creationalpatterns/prototype/problem/student.py
 creationalpatterns/prototype/solution/__init__.py

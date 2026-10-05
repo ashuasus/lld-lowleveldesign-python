@@ -212,3 +212,5 @@
 | 2026-10-04 | `creationalpatterns/objectpool/solution/__init__.py` |
 | 2026-10-04 | `creationalpatterns/objectpool/solution/client.py` |
 | 2026-10-04 | `creationalpatterns/objectpool/solution/db_connection_pool_manager.py` |
+| 2026-10-05 | `creationalpatterns/prototype/__init__.py` |
+| 2026-10-05 | `creationalpatterns/prototype/problem/__init__.py` |
