@@ -214,3 +214,5 @@
 | 2026-10-04 | `creationalpatterns/objectpool/solution/db_connection_pool_manager.py` |
 | 2026-10-05 | `creationalpatterns/prototype/__init__.py` |
 | 2026-10-05 | `creationalpatterns/prototype/problem/__init__.py` |
+| 2026-10-06 | `creationalpatterns/prototype/problem/demo_problem.py` |
+| 2026-10-06 | `creationalpatterns/prototype/problem/student.py` |
