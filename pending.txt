@@ -1,6 +1,3 @@
-creationalpatterns/prototype/solution/student.py
-creationalpatterns/prototype/solution/student_prototype.py
-creationalpatterns/singleton/__init__.py
 creationalpatterns/singleton/db_connection_double_locking.py
 creationalpatterns/singleton/db_connection_eager.py
 creationalpatterns/singleton/db_connection_lazy.py
