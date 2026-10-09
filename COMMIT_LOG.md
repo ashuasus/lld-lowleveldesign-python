@@ -221,3 +221,5 @@
 | 2026-10-08 | `creationalpatterns/prototype/solution/student.py` |
 | 2026-10-08 | `creationalpatterns/prototype/solution/student_prototype.py` |
 | 2026-10-08 | `creationalpatterns/singleton/__init__.py` |
+| 2026-10-09 | `creationalpatterns/singleton/db_connection_double_locking.py` |
+| 2026-10-09 | `creationalpatterns/singleton/db_connection_eager.py` |
