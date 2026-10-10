@@ -1,6 +1,3 @@
-creationalpatterns/singleton/db_connection_lazy.py
-creationalpatterns/singleton/db_connection_thread_safe.py
-creationalpatterns/singleton/dclbugfix/__init__.py
 creationalpatterns/singleton/dclbugfix/db_connection_double_checked_lock_fix.py
 creationalpatterns/singleton/dclbugfix/db_connection_double_checked_lock_issue.py
 creationalpatterns/singleton/singleton_demo.py

@@ -223,3 +223,6 @@
 | 2026-10-08 | `creationalpatterns/singleton/__init__.py` |
 | 2026-10-09 | `creationalpatterns/singleton/db_connection_double_locking.py` |
 | 2026-10-09 | `creationalpatterns/singleton/db_connection_eager.py` |
+| 2026-10-10 | `creationalpatterns/singleton/db_connection_lazy.py` |
+| 2026-10-10 | `creationalpatterns/singleton/db_connection_thread_safe.py` |
+| 2026-10-10 | `creationalpatterns/singleton/dclbugfix/__init__.py` |
