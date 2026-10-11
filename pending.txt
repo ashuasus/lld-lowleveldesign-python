@@ -1,6 +1,3 @@
-creationalpatterns/singleton/dclbugfix/db_connection_double_checked_lock_fix.py
-creationalpatterns/singleton/dclbugfix/db_connection_double_checked_lock_issue.py
-creationalpatterns/singleton/singleton_demo.py
 interviewquestions/__init__.py
 interviewquestions/atm/ATMRoomComponents/__init__.py
 interviewquestions/atm/ATMRoomComponents/atm.py
