@@ -1,6 +1,3 @@
-interviewquestions/__init__.py
-interviewquestions/atm/ATMRoomComponents/__init__.py
-interviewquestions/atm/ATMRoomComponents/atm.py
 interviewquestions/atm/ATMRoomComponents/atm_room.py
 interviewquestions/atm/ATMRoomComponents/card.py
 interviewquestions/atm/ATMRoomComponents/user.py
