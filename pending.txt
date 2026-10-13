@@ -1,4 +1,3 @@
-interviewquestions/atm/ATMRoomComponents/atm_room.py
 interviewquestions/atm/ATMRoomComponents/card.py
 interviewquestions/atm/ATMRoomComponents/user.py
 interviewquestions/atm/ATMRoomComponents/user_bank_account.py
