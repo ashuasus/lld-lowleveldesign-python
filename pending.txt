@@ -1,6 +1,3 @@
-interviewquestions/atm/ATMRoomComponents/card.py
-interviewquestions/atm/ATMRoomComponents/user.py
-interviewquestions/atm/ATMRoomComponents/user_bank_account.py
 interviewquestions/atm/ATMStates/__init__.py
 interviewquestions/atm/ATMStates/atm_state.py
 interviewquestions/atm/ATMStates/cash_withdrawal_state.py
