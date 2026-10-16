@@ -1,4 +1,3 @@
-interviewquestions/atm/ATMStates/cash_withdrawal_state.py
 interviewquestions/atm/ATMStates/check_balance_state.py
 interviewquestions/atm/ATMStates/has_card_state.py
 interviewquestions/atm/ATMStates/idle_state.py
