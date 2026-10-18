@@ -240,3 +240,6 @@
 | 2026-10-15 | `interviewquestions/atm/ATMStates/atm_state.py` |
 | 2026-10-16 | `interviewquestions/atm/ATMStates/cash_withdrawal_state.py` |
 | 2026-10-17 | `interviewquestions/atm/ATMStates/check_balance_state.py` |
+| 2026-10-18 | `interviewquestions/atm/ATMStates/has_card_state.py` |
+| 2026-10-18 | `interviewquestions/atm/ATMStates/idle_state.py` |
+| 2026-10-18 | `interviewquestions/atm/ATMStates/select_operation_state.py` |
