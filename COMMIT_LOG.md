@@ -243,3 +243,6 @@
 | 2026-10-18 | `interviewquestions/atm/ATMStates/has_card_state.py` |
 | 2026-10-18 | `interviewquestions/atm/ATMStates/idle_state.py` |
 | 2026-10-18 | `interviewquestions/atm/ATMStates/select_operation_state.py` |
+| 2026-10-19 | `interviewquestions/atm/AmountWithdrawal/__init__.py` |
+| 2026-10-19 | `interviewquestions/atm/AmountWithdrawal/cash_withdraw_processor.py` |
+| 2026-10-19 | `interviewquestions/atm/AmountWithdrawal/five_hundred_withdraw_processor.py` |
