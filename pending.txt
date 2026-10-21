@@ -1,4 +1,3 @@
-interviewquestions/atm/AmountWithdrawal/two_thousand_withdraw_processor.py
 interviewquestions/atm/__init__.py
 interviewquestions/atm/enums/__init__.py
 interviewquestions/atm/enums/transaction_type.py
