@@ -1,4 +1,3 @@
-interviewquestions/atm/__init__.py
 interviewquestions/atm/enums/__init__.py
 interviewquestions/atm/enums/transaction_type.py
 interviewquestions/book_my_show/__init__.py
