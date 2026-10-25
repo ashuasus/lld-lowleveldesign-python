@@ -1,6 +1,3 @@
-interviewquestions/book_my_show/controllers/__init__.py
-interviewquestions/book_my_show/controllers/booking_controller.py
-interviewquestions/book_my_show/controllers/theatre_controller.py
 interviewquestions/book_my_show/entities/__init__.py
 interviewquestions/book_my_show/entities/booking.py
 interviewquestions/book_my_show/entities/movie.py

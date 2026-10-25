@@ -253,3 +253,6 @@
 | 2026-10-24 | `interviewquestions/atm/enums/transaction_type.py` |
 | 2026-10-24 | `interviewquestions/book_my_show/__init__.py` |
 | 2026-10-24 | `interviewquestions/book_my_show/book_my_show_app.py` |
+| 2026-10-25 | `interviewquestions/book_my_show/controllers/__init__.py` |
+| 2026-10-25 | `interviewquestions/book_my_show/controllers/booking_controller.py` |
+| 2026-10-25 | `interviewquestions/book_my_show/controllers/theatre_controller.py` |
