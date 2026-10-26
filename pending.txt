@@ -1,5 +1,3 @@
-interviewquestions/book_my_show/entities/__init__.py
-interviewquestions/book_my_show/entities/booking.py
 interviewquestions/book_my_show/entities/movie.py
 interviewquestions/book_my_show/entities/payment.py
 interviewquestions/book_my_show/entities/screen.py
