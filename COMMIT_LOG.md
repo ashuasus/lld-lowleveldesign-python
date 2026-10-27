@@ -258,3 +258,6 @@
 | 2026-10-25 | `interviewquestions/book_my_show/controllers/theatre_controller.py` |
 | 2026-10-26 | `interviewquestions/book_my_show/entities/__init__.py` |
 | 2026-10-26 | `interviewquestions/book_my_show/entities/booking.py` |
+| 2026-10-27 | `interviewquestions/book_my_show/entities/movie.py` |
+| 2026-10-27 | `interviewquestions/book_my_show/entities/payment.py` |
+| 2026-10-27 | `interviewquestions/book_my_show/entities/screen.py` |

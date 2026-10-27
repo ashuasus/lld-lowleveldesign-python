@@ -1,6 +1,3 @@
-interviewquestions/book_my_show/entities/movie.py
-interviewquestions/book_my_show/entities/payment.py
-interviewquestions/book_my_show/entities/screen.py
 interviewquestions/book_my_show/entities/seat.py
 interviewquestions/book_my_show/entities/show.py
 interviewquestions/book_my_show/entities/theatre.py
