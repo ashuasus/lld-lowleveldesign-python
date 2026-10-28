@@ -261,3 +261,6 @@
 | 2026-10-27 | `interviewquestions/book_my_show/entities/movie.py` |
 | 2026-10-27 | `interviewquestions/book_my_show/entities/payment.py` |
 | 2026-10-27 | `interviewquestions/book_my_show/entities/screen.py` |
+| 2026-10-28 | `interviewquestions/book_my_show/entities/seat.py` |
+| 2026-10-28 | `interviewquestions/book_my_show/entities/show.py` |
+| 2026-10-28 | `interviewquestions/book_my_show/entities/theatre.py` |
