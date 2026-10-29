@@ -264,3 +264,5 @@
 | 2026-10-28 | `interviewquestions/book_my_show/entities/seat.py` |
 | 2026-10-28 | `interviewquestions/book_my_show/entities/show.py` |
 | 2026-10-28 | `interviewquestions/book_my_show/entities/theatre.py` |
+| 2026-10-29 | `interviewquestions/book_my_show/entities/user.py` |
+| 2026-10-29 | `interviewquestions/book_my_show/enums/__init__.py` |

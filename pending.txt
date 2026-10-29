@@ -1,5 +1,3 @@
-interviewquestions/book_my_show/entities/user.py
-interviewquestions/book_my_show/enums/__init__.py
 interviewquestions/book_my_show/enums/city.py
 interviewquestions/book_my_show/enums/payment_status.py
 interviewquestions/book_my_show/enums/seat_category.py
