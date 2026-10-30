@@ -266,3 +266,6 @@
 | 2026-10-28 | `interviewquestions/book_my_show/entities/theatre.py` |
 | 2026-10-29 | `interviewquestions/book_my_show/entities/user.py` |
 | 2026-10-29 | `interviewquestions/book_my_show/enums/__init__.py` |
+| 2026-10-30 | `interviewquestions/book_my_show/enums/city.py` |
+| 2026-10-30 | `interviewquestions/book_my_show/enums/payment_status.py` |
+| 2026-10-30 | `interviewquestions/book_my_show/enums/seat_category.py` |
