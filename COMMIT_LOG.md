@@ -271,3 +271,4 @@
 | 2026-10-30 | `interviewquestions/book_my_show/enums/seat_category.py` |
 | 2026-10-31 | `interviewquestions/book_my_show/enums/seat_status.py` |
 | 2026-10-31 | `interviewquestions/book_my_show/service/__init__.py` |
+| 2026-11-01 | `interviewquestions/book_my_show/service/booking_service.py` |
