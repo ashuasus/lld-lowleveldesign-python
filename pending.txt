@@ -1,5 +1,3 @@
-interviewquestions/book_my_show/service/theatre_service.py
-interviewquestions/carrental/Bill/__init__.py
 interviewquestions/carrental/Bill/bill.py
 interviewquestions/carrental/Bill/bill_manager.py
 interviewquestions/carrental/Bill/billing_strategy.py
