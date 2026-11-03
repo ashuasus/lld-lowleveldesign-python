@@ -1,6 +1,3 @@
-interviewquestions/carrental/Bill/bill.py
-interviewquestions/carrental/Bill/bill_manager.py
-interviewquestions/carrental/Bill/billing_strategy.py
 interviewquestions/carrental/Bill/daily_billing_strategy.py
 interviewquestions/carrental/__init__.py
 interviewquestions/carrental/demo.py

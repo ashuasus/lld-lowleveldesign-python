@@ -274,3 +274,6 @@
 | 2026-11-01 | `interviewquestions/book_my_show/service/booking_service.py` |
 | 2026-11-02 | `interviewquestions/book_my_show/service/theatre_service.py` |
 | 2026-11-02 | `interviewquestions/carrental/Bill/__init__.py` |
+| 2026-11-03 | `interviewquestions/carrental/Bill/bill.py` |
+| 2026-11-03 | `interviewquestions/carrental/Bill/bill_manager.py` |
+| 2026-11-03 | `interviewquestions/carrental/Bill/billing_strategy.py` |
