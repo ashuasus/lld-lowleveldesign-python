@@ -277,3 +277,6 @@
 | 2026-11-03 | `interviewquestions/carrental/Bill/bill.py` |
 | 2026-11-03 | `interviewquestions/carrental/Bill/bill_manager.py` |
 | 2026-11-03 | `interviewquestions/carrental/Bill/billing_strategy.py` |
+| 2026-11-04 | `interviewquestions/carrental/Bill/daily_billing_strategy.py` |
+| 2026-11-04 | `interviewquestions/carrental/__init__.py` |
+| 2026-11-04 | `interviewquestions/carrental/demo.py` |
