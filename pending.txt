@@ -1,6 +1,3 @@
-interviewquestions/carrental/location.py
-interviewquestions/carrental/payment/__init__.py
-interviewquestions/carrental/payment/payment.py
 interviewquestions/carrental/payment/payment_manager.py
 interviewquestions/carrental/payment/payment_mode.py
 interviewquestions/carrental/payment/payment_strategy.py
