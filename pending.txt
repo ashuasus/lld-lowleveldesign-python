@@ -1,4 +1,3 @@
-interviewquestions/carrental/payment/upi_payment_strategy.py
 interviewquestions/carrental/product/__init__.py
 interviewquestions/carrental/product/date_interval.py
 interviewquestions/carrental/product/vehicle.py
