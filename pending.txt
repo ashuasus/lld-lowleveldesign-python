@@ -1,6 +1,3 @@
-interviewquestions/carrental/product/__init__.py
-interviewquestions/carrental/product/date_interval.py
-interviewquestions/carrental/product/vehicle.py
 interviewquestions/carrental/product/vehicle_inventory_manager.py
 interviewquestions/carrental/product/vehicle_status.py
 interviewquestions/carrental/product/vehicle_type.py
