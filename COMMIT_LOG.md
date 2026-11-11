@@ -292,3 +292,6 @@
 | 2026-11-09 | `interviewquestions/carrental/product/vehicle.py` |
 | 2026-11-10 | `interviewquestions/carrental/product/vehicle_inventory_manager.py` |
 | 2026-11-10 | `interviewquestions/carrental/product/vehicle_status.py` |
+| 2026-11-11 | `interviewquestions/carrental/product/vehicle_type.py` |
+| 2026-11-11 | `interviewquestions/carrental/reservation/__init__.py` |
+| 2026-11-11 | `interviewquestions/carrental/reservation/reservation.py` |

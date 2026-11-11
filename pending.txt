@@ -1,6 +1,3 @@
-interviewquestions/carrental/product/vehicle_type.py
-interviewquestions/carrental/reservation/__init__.py
-interviewquestions/carrental/reservation/reservation.py
 interviewquestions/carrental/reservation/reservation_manager.py
 interviewquestions/carrental/reservation/reservation_repository.py
 interviewquestions/carrental/reservation/reservation_status.py
