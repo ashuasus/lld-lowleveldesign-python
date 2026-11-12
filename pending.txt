@@ -1,4 +1,3 @@
-interviewquestions/carrental/reservation/reservation_manager.py
 interviewquestions/carrental/reservation/reservation_repository.py
 interviewquestions/carrental/reservation/reservation_status.py
 interviewquestions/carrental/reservation/reservation_type.py
