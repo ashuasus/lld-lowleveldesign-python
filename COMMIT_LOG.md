@@ -297,3 +297,6 @@
 | 2026-11-11 | `interviewquestions/carrental/reservation/reservation.py` |
 | 2026-11-12 | `interviewquestions/carrental/reservation/reservation_manager.py` |
 | 2026-11-13 | `interviewquestions/carrental/reservation/reservation_repository.py` |
+| 2026-11-14 | `interviewquestions/carrental/reservation/reservation_status.py` |
+| 2026-11-14 | `interviewquestions/carrental/reservation/reservation_type.py` |
+| 2026-11-14 | `interviewquestions/carrental/store.py` |
