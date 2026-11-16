@@ -1,5 +1,3 @@
-interviewquestions/chess/__init__.py
-interviewquestions/chess/board.py
 interviewquestions/chess/cell.py
 interviewquestions/chess/chess_demo.py
 interviewquestions/chess/enums/__init__.py
