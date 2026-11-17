@@ -304,3 +304,5 @@
 | 2026-11-15 | `interviewquestions/carrental/vehicle_rental_system.py` |
 | 2026-11-16 | `interviewquestions/chess/__init__.py` |
 | 2026-11-16 | `interviewquestions/chess/board.py` |
+| 2026-11-17 | `interviewquestions/chess/cell.py` |
+| 2026-11-17 | `interviewquestions/chess/chess_demo.py` |

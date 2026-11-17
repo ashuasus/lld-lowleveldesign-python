@@ -1,5 +1,3 @@
-interviewquestions/chess/cell.py
-interviewquestions/chess/chess_demo.py
 interviewquestions/chess/enums/__init__.py
 interviewquestions/chess/enums/game_status.py
 interviewquestions/chess/enums/piece_colour.py
