@@ -306,3 +306,6 @@
 | 2026-11-16 | `interviewquestions/chess/board.py` |
 | 2026-11-17 | `interviewquestions/chess/cell.py` |
 | 2026-11-17 | `interviewquestions/chess/chess_demo.py` |
+| 2026-11-18 | `interviewquestions/chess/enums/__init__.py` |
+| 2026-11-18 | `interviewquestions/chess/enums/game_status.py` |
+| 2026-11-18 | `interviewquestions/chess/enums/piece_colour.py` |
