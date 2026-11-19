@@ -1,5 +1,3 @@
-interviewquestions/chess/enums/piece_type.py
-interviewquestions/chess/game.py
 interviewquestions/chess/move.py
 interviewquestions/chess/pieces/__init__.py
 interviewquestions/chess/pieces/bishop.py
