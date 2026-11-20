@@ -311,3 +311,5 @@
 | 2026-11-18 | `interviewquestions/chess/enums/piece_colour.py` |
 | 2026-11-19 | `interviewquestions/chess/enums/piece_type.py` |
 | 2026-11-19 | `interviewquestions/chess/game.py` |
+| 2026-11-20 | `interviewquestions/chess/move.py` |
+| 2026-11-20 | `interviewquestions/chess/pieces/__init__.py` |

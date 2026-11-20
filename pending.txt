@@ -1,5 +1,3 @@
-interviewquestions/chess/move.py
-interviewquestions/chess/pieces/__init__.py
 interviewquestions/chess/pieces/bishop.py
 interviewquestions/chess/pieces/king.py
 interviewquestions/chess/pieces/knight.py
