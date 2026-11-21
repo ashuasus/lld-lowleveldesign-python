@@ -313,3 +313,5 @@
 | 2026-11-19 | `interviewquestions/chess/game.py` |
 | 2026-11-20 | `interviewquestions/chess/move.py` |
 | 2026-11-20 | `interviewquestions/chess/pieces/__init__.py` |
+| 2026-11-21 | `interviewquestions/chess/pieces/bishop.py` |
+| 2026-11-21 | `interviewquestions/chess/pieces/king.py` |

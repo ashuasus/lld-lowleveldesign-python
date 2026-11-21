@@ -1,5 +1,3 @@
-interviewquestions/chess/pieces/bishop.py
-interviewquestions/chess/pieces/king.py
 interviewquestions/chess/pieces/knight.py
 interviewquestions/chess/pieces/pawn.py
 interviewquestions/chess/pieces/piece.py
