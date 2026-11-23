@@ -1,4 +1,3 @@
-interviewquestions/chess/pieces/piece.py
 interviewquestions/chess/pieces/queen.py
 interviewquestions/chess/pieces/rook.py
 interviewquestions/chess/player.py

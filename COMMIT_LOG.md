@@ -317,3 +317,4 @@
 | 2026-11-21 | `interviewquestions/chess/pieces/king.py` |
 | 2026-11-22 | `interviewquestions/chess/pieces/knight.py` |
 | 2026-11-22 | `interviewquestions/chess/pieces/pawn.py` |
+| 2026-11-23 | `interviewquestions/chess/pieces/piece.py` |
