@@ -1,6 +1,3 @@
-interviewquestions/chess/pieces/queen.py
-interviewquestions/chess/pieces/rook.py
-interviewquestions/chess/player.py
 interviewquestions/chess/position.py
 interviewquestions/couponappln/__init__.py
 interviewquestions/couponappln/coupons/__init__.py

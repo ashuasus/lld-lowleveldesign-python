@@ -318,3 +318,6 @@
 | 2026-11-22 | `interviewquestions/chess/pieces/knight.py` |
 | 2026-11-22 | `interviewquestions/chess/pieces/pawn.py` |
 | 2026-11-23 | `interviewquestions/chess/pieces/piece.py` |
+| 2026-11-24 | `interviewquestions/chess/pieces/queen.py` |
+| 2026-11-24 | `interviewquestions/chess/pieces/rook.py` |
+| 2026-11-24 | `interviewquestions/chess/player.py` |
