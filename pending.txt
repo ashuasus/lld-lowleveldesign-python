@@ -1,4 +1,3 @@
-interviewquestions/chess/position.py
 interviewquestions/couponappln/__init__.py
 interviewquestions/couponappln/coupons/__init__.py
 interviewquestions/couponappln/coupons/coupon_decorator.py

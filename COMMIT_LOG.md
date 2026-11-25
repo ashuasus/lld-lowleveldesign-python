@@ -321,3 +321,4 @@
 | 2026-11-24 | `interviewquestions/chess/pieces/queen.py` |
 | 2026-11-24 | `interviewquestions/chess/pieces/rook.py` |
 | 2026-11-24 | `interviewquestions/chess/player.py` |
+| 2026-11-25 | `interviewquestions/chess/position.py` |
