@@ -1,4 +1,3 @@
-interviewquestions/couponappln/coupons/__init__.py
 interviewquestions/couponappln/coupons/coupon_decorator.py
 interviewquestions/couponappln/coupons/percentage_coupon_decorator.py
 interviewquestions/couponappln/coupons/type_coupon_decorator.py
